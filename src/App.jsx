@@ -5,6 +5,7 @@ import Detail from './components/Details'
 import Reservation from './components/Reservations'
 import Login from './components/auth/Login'
 import Signup from './components/auth/Signup'
+import ResetPassword from './components/auth/ResetPassword'
 
 const App = () => (
   <Routes>
@@ -13,6 +14,7 @@ const App = () => (
     <Route path="/reservations" element={<Reservation/>}></Route>
     <Route path="/login" element={<Login />}></Route>
     <Route path='/signup' element={<Signup />} />
+    <Route path="/reset-password" element={<ResetPassword />}></Route>
   </Routes>
 )
 

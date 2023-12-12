@@ -24,7 +24,7 @@ function Login() {
             placeholder="Password"
           />
           <span className="forgot-password">
-            <a href="#">Forgot Password ?</a>
+            <Link to={'/reset-password'}>Forgot Password ?</Link>
           </span>
           <input
             className="login-button"

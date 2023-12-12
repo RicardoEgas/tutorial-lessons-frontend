@@ -17,7 +17,6 @@ const Navbar = () => {
         {isOpen ? <FaArrowLeft /> : <FaBars />}
       </div>
 
-      {/* Full menu for larger screens */}
       <ul className={`lg:flex lg:flex-col lg:items-center ${isOpen ? 'block' : 'hidden'}`}>
         <li className='hidden lg:block'>
           <h1 className='font-bold text-black py-4'>Logo</h1>
@@ -39,7 +38,7 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <div className="nav-footer hidden lg:block mt-40">
+      <div className={`lg:block mt-40 ${isOpen ? 'nav-footer' : 'hidden'}`}>
         <ul className="social-links-container ms-5 flex">
           <li>
             <i className="fab fa-facebook-f me-4 text-sm text-gray-700"></i>
@@ -61,13 +60,6 @@ const Navbar = () => {
           @2015 PIAGGIO $ C.S P.A. PIVA
         </small>
       </div>
-
-      {/* Toggle back button for larger screens */}
-      {isOpen && (
-        <div className="lg:hidden absolute right-0 top-0 cursor-pointer p-4" onClick={toggleMenu}>
-          <FaArrowLeft />
-        </div>
-      )}
     </nav>
   );
 };

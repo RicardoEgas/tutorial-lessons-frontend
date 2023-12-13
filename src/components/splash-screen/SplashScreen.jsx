@@ -1,4 +1,5 @@
-import './splash.css'
+import { Link } from 'react-router-dom';
+import './splash.css';
 
 function SplashScreen() {
   return (
@@ -7,8 +8,8 @@ function SplashScreen() {
           <h1>Welcome</h1>
           <p>Get to know us better by enrolling with us</p>
           <div className="banner-btn">
-              <a href="#"><span></span>Home</a>
-              <a href="#"><span></span>Tutors</a>
+              <Link to={'/login'}><span></span>Login</Link>
+              <Link to={'/signup'}><span></span>Register</Link>
           </div>
       </div>
     </section>

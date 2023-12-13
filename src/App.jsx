@@ -1,5 +1,5 @@
-// import React from 'react';
-import { Routes, Route } from 'react-router-dom'
+import { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Main from './components/Main'
 import Detail from './components/Details'
 import Reservation from './components/Reservations'
@@ -8,18 +8,27 @@ import Signup from './components/auth/Signup'
 import ResetPassword from './components/auth/ResetPassword'
 import SplashScreen from './components/splash-screen/SplashScreen'
 
-const App = () => (
-  <>
-    <SplashScreen />
-    <Routes>
-      <Route path="/" element={<Main/>}></Route>
-      <Route path="/details/:id" element={<Detail/>}></Route>
-      <Route path="/reservations" element={<Reservation/>}></Route>
-      <Route path="/login" element={<Login />}></Route>
-      <Route path='/signup' element={<Signup />} />
-      <Route path="/reset-password" element={<ResetPassword />}></Route>
-    </Routes>
-  </>
-)
+const App = () => {
+  const [showSplash, setShowSplash] = useState(true);
 
-export default App
+  const hideSplash = () => {
+    setShowSplash(false);
+  }
+
+  return (
+    <>
+      {showSplash && <SplashScreen />}
+      <Routes>
+        <Route path="/" element={<Main/>}></Route>
+        <Route path="/details/:id" element={<Detail/>}></Route>
+        <Route path="/reservations" element={<Reservation/>}></Route>
+        <Route path="/login" element={<Login hideSplash={hideSplash} />} />
+        <Route path="/signup" element={<Signup hideSplash={hideSplash} />} />
+        <Route path="/reset-password" element={<ResetPassword />}></Route>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </>
+  )
+}
+
+export default App;

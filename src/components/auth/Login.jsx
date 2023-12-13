@@ -1,7 +1,13 @@
+/* eslint-disable react/prop-types */
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
-function Login() {
+function Login({ hideSplash }) {
+  useEffect(() => {
+    hideSplash();
+  }, [hideSplash]);
+
   return (
     <section className='form-auth'>
       <div className="container">

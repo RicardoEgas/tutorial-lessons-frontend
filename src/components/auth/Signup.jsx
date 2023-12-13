@@ -8,7 +8,7 @@ function Signup({ hideSplash }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     hideSplash();
@@ -18,7 +18,7 @@ function Signup({ hideSplash }) {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/api/v1/users/sign_up', {
+      const response = await fetch('http://localhost:3000/api/v1/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ function Signup({ hideSplash }) {
 
       if (response.ok) {
         console.log('Signup successful', data);
-        history.push('/login');
+        navigate('/login');
       } else {
         console.error('Signup failed', data.errors);
       }

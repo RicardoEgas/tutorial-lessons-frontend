@@ -6,7 +6,7 @@ import './Login.css';
 function Login({ hideSplash }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     hideSplash();
@@ -33,7 +33,7 @@ function Login({ hideSplash }) {
 
       if (response.ok) {
         console.log('Login successful', data);
-        history.push('/reservations');
+        navigate('/reservations');
       } else {
         console.error('Login failed', data.error);
       }

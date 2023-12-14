@@ -21,7 +21,7 @@
   text-align: center;
   font-weight: 900;
   font-size: 30px;
-  color: rgb(16, 137, 211);
+  color: #97bf0f;
 }
 
 .form {
@@ -40,16 +40,16 @@
 }
 
 .form .input::-moz-placeholder {
-  color: rgb(170, 170, 170);
+  color: #97bf0f;
 }
 
 .form .input::placeholder {
-  color: rgb(170, 170, 170);
+  color: #97bf0f;
 }
 
 .form .input:focus {
   outline: none;
-  border-inline: 2px solid #12b1d1;
+  border-inline: 2px solid #97bf0f;
 }
 
 .form .forgot-password {
@@ -60,11 +60,11 @@
 
 .agreement a {
   text-decoration: none;
-  color: #09f;
+  color: #97bf0f;
 }
 
 .form .forgot-password a {
-  color: #09f;
+  color: #97bf0f;
   text-decoration: none;
 }
 
@@ -72,7 +72,7 @@
   display: block;
   width: 100%;
   font-weight: bold;
-  background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+  background: #97bf0f;
   color: white;
   padding-block: 15px;
   margin: 20px auto;

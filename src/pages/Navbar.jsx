@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { FaBars, FaArrowLeft } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
-
+// import TutorialItems  from './tutorials/TutorialItems'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,10 +32,17 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className="p-4 cursor-pointer">
+          <NavLink to="/tutorials" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
+            Tutorials
+            {/* <TutorialItems /> */}
+          </NavLink>
+        </li>
+        <li className="p-4 cursor-pointer">
           <NavLink to="/reservations" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
             Reservations
           </NavLink>
         </li>
+
       </ul>
 
       <div className={`lg:block mt-40 ${isOpen ? 'nav-footer' : 'hidden'}`}>

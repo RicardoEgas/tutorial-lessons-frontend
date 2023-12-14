@@ -8,6 +8,7 @@ import Signup from './components/auth/Signup'
 import ResetPassword from './components/auth/ResetPassword'
 import SplashScreen from './components/splash-screen/SplashScreen'
 import AddClassForm from './components/Classes'
+import Home from './components/home/Home';
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/reset-password" element={<ResetPassword />}></Route>
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/classes" element={<AddClassForm/>}></Route>
+        <Route path="/home" element={<Home/>}></Route>
       </Routes>
     </>
   )

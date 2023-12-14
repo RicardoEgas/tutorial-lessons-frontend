@@ -4,6 +4,7 @@ import Main from './components/Main'
 import Detail from './components/Details'
 import Reservation from './components/Reservations'
 import AddClassForm from './components/Classes'
+import DeleteClass from './components/Delete'
 
 const App = () => (
   <Routes>
@@ -11,6 +12,7 @@ const App = () => (
     <Route path="/details/:id" element={<Detail/>}></Route>
     <Route path="/reservations" element={<Reservation/>}></Route>
     <Route path="/classes" element={<AddClassForm/>}></Route>
+    <Route path="/delete" element={<DeleteClass/>}></Route>
   </Routes>
 )
 

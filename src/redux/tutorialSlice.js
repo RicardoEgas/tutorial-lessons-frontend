@@ -1,5 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import customApi from '../utils/axios';
+import { getToken } from '../utils/localStorage';
+
+const token = getToken();
 
 const getTutorials = createAsyncThunk(
   'tutorials/getTutorials',
@@ -17,7 +20,11 @@ const deleteTutorial = createAsyncThunk(
   'tutorials/deleteTutorial',
   async (tutorial_id, thunkAPI) => {
     try {
-      const response = await customApi.delete(`/api/v1/tutorials/${tutorial_id}`);
+      const response = await customApi.delete(`/api/v1/tutorials/${tutorial_id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       alert(response.data.message);
       return response.data.message;
     } catch (error) {

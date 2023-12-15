@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import customApi from "../utils/axios";
+import { saveToken, getToken, removeToken } from "../utils/localStorage";
 
 const makeApiCall = async (endpoint, user, thunkAPI) => {
   try {
@@ -64,6 +65,7 @@ const userSlice = createSlice({
         state.isLoading = false;
         state.isAuthenticated = true;
         state.user = action.payload.user.data;
+        saveToken(action.payload.user.data.token)
       })
       .addCase(logInUser.rejected, (state, action) => {
         state.isLoading = false;

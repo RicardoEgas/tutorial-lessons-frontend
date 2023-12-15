@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom'
-import Main from './components/Main'
+import { Routes, Route} from 'react-router-dom'
 import Detail from './components/Details'
 import Reservation from './components/Reservations'
 import Login from './components/auth/Login'

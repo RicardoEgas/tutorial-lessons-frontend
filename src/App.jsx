@@ -11,23 +11,17 @@ import AddClassForm from './components/Classes'
 import Home from './components/home/Home';
 
 const App = () => {
-  const [showSplash, setShowSplash] = useState(true);
-
-  const hideSplash = () => {
-    setShowSplash(false);
-  }
 
   return (
     <>
-      {showSplash && <SplashScreen />}
       <Routes>
-        <Route path="/" element={<Main/>}></Route>
+
+        <Route path="/" element={<SplashScreen />} />
         <Route path="/details/:id" element={<Detail/>}></Route>
         <Route path="/reservations" element={<Reservation/>}></Route>
-        <Route path="/login" element={<Login hideSplash={hideSplash} />} />
-        <Route path="/signup" element={<Signup hideSplash={hideSplash} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/reset-password" element={<ResetPassword />}></Route>
-        <Route path="*" element={<Navigate to="/" />} />
         <Route path="/classes" element={<AddClassForm/>}></Route>
         <Route path="/home" element={<Home/>}></Route>
       </Routes>

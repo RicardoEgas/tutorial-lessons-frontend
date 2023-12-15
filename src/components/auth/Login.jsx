@@ -1,61 +1,19 @@
-/* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Login.css';
 
-function Login({ hideSplash }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    hideSplash();
-  }, [hideSplash]);
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch('http://localhost:3000/api/v1/users/sign_in', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          user: {
-            email: email,
-            password: password,
-          },
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log('Login successful', data);
-        navigate('/reservations');
-      } else {
-        console.error('Login failed', data.error);
-      }
-    } catch (error) {
-      console.error('Error during login', error);
-    }
-  };
-
+function Login() {
   return (
     <section className='form-auth'>
       <div className="container">
         <div className="heading">Sign In</div>
-        <form action="" className="form" onSubmit={handleLogin}>
+        <form action="" className="form">
           <input
             required=""
             className="input"
             type="email"
             name="email"
             id="email"
-            placeholder="E-mail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)} 
+            placeholder="E-mail" 
           />
           <input
             required=""
@@ -64,8 +22,6 @@ function Login({ hideSplash }) {
             name="password"
             id="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
           />
           <span className="forgot-password">
             <Link to={'/reset-password'}>Forgot Password ?</Link>

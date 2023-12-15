@@ -1,4 +1,3 @@
-import React from 'react';
 import './reservation.css'
 
 const Reservation = () => {

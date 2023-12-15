@@ -29,11 +29,6 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className="p-4 cursor-pointer">
-          <NavLink to="/details/1" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
-            Details
-          </NavLink>
-        </li>
-        <li className="p-4 cursor-pointer">
           <NavLink to="/reservations" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
             Reservations
           </NavLink>

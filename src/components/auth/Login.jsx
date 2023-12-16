@@ -33,7 +33,7 @@ function Login({ hideSplash }) {
 
       if (response.ok) {
         console.log('Login successful', data);
-        navigate('/reservations');
+        navigate('/home');
       } else {
         console.error('Login failed', data.error);
       }

@@ -15,6 +15,7 @@ import AddTutorial from './pages/AddTutorial';
 import TutorialDetail from './components/tutorials/TutorialDetail';
 import Tutorials from './pages/tutorials';
 import DeleteTutorials from './pages/DeleteTutorials';
+import Home from './pages/Homepage';
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/signup" element={<Signup hideSplash={hideSplash} />} />
           <Route path="/reset-password" element={<ResetPassword />} />
 
+          <Route path='/home' element={<Home />} />
           {/* Parent route for tutorials */}
           <Route path="/tutorials/*" element={<Tutorials />}>
             <Route index element={<Tutorials />} />

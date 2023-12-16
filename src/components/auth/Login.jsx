@@ -1,19 +1,51 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginAsync } from '../redux/authStore/authSlice';
 import './Login.css';
 
 function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      // Send the login request with the 'user' parameter
+      await dispatch(loginAsync({ user: formData }));
+      navigate('/home');
+    } catch (error) {
+      console.error('Login error:', error);
+    }
+  };  
+
   return (
     <section className='form-auth'>
       <div className="container">
         <div className="heading">Sign In</div>
-        <form action="" className="form">
+        <form action="" className="form"  onSubmit={handleLogin}>
           <input
             required=""
             className="input"
             type="email"
             name="email"
             id="email"
-            placeholder="E-mail" 
+            placeholder="E-mail"
+            value={formData.email}
+            onChange={handleInputChange}
           />
           <input
             required=""
@@ -22,6 +54,8 @@ function Login() {
             name="password"
             id="password"
             placeholder="Password"
+            value={formData.password}
+            onChange={handleInputChange}
           />
           <span className="forgot-password">
             <Link to={'/reset-password'}>Forgot Password ?</Link>

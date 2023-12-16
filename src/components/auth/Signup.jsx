@@ -1,12 +1,43 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { signupAsync } from '../redux/authStore/authSlice';
 import './Login.css';
 
 function Signup() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    try {
+      await dispatch(signupAsync(formData));
+      navigate('/login');
+    } catch (error) {
+      console.error("Signup error:", error);
+    }
+  };  
+
   return (
     <section className='form-auth'>
       <div className="container">
         <div className="heading">Sign Up</div>
-        <form action="" className="form">
+        <form action="" className="form" onSubmit={handleSignup}>
           <input
             required=""
             className="input"
@@ -14,6 +45,8 @@ function Signup() {
             name="name"
             id="name"
             placeholder="Name" 
+            value={formData.name}
+            onChange={handleInputChange}
           />
           <input
             required=""
@@ -21,7 +54,9 @@ function Signup() {
             type="email"
             name="email"
             id="email"
-            placeholder="E-mail" 
+            placeholder="E-mail"
+            value={formData.email}
+            onChange={handleInputChange}
           />
           <input
             required=""
@@ -30,14 +65,18 @@ function Signup() {
             name="password"
             id="password"
             placeholder="Password"
+            value={formData.password}
+            onChange={handleInputChange}
           />
           <input
             required=""
             className="input"
             type="password"
-            name="confirm-password"
-            id="password"
+            name="confirmPassword"
+            id="confirm-password"
             placeholder="Confirm Password"
+            value={formData.confirmPassword}
+            onChange={handleInputChange}
           />
           <input
             className="login-button"

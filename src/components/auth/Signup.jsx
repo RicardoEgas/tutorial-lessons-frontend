@@ -7,6 +7,7 @@ import './Login.css';
 function Signup() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [error, setError] = useState('');
 
   const [formData, setFormData] = useState({
     name: '',
@@ -25,18 +26,28 @@ function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+
+    // Validation: Check if the password is at least 6 characters
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters');
+      return; // Do not proceed with signup
+    }
+
     try {
+      // Reset error state before dispatching the signupAsync action
+      setError('');
       await dispatch(signupAsync(formData));
       navigate('/login');
     } catch (error) {
-      console.error("Signup error:", error);
+      console.error('Signup error:', error);
     }
-  };  
+  }; 
 
   return (
     <section className='form-auth'>
       <div className="container">
         <div className="heading">Sign Up</div>
+        {error && <div className="error-message">{error}</div>}
         <form action="" className="form" onSubmit={handleSignup}>
           <input
             required=""

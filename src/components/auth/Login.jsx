@@ -24,7 +24,6 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // Send the login request with the 'user' parameter
       await dispatch(loginAsync({ user: formData }));
       navigate('/home');
     } catch (error) {

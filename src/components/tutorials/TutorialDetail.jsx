@@ -5,10 +5,14 @@ import { useEffect, useState } from 'react';
 const TutorialDetail = () => {
     const [theTutorial, SettheTutorial] = useState(null);
     const { id } = useParams();
+    console.log('Tutorial ID:', id);
     const tutorials = useSelector((state) => state.tutorials.tutorials);
   
     useEffect(() => {
         tutorials.forEach((element) => {
+          console.log('ID from URL:', id);
+          console.log('ID from Tutorial:', element.id);
+
         if (element.id === parseInt(id)) {
           SettheTutorial(element);
         }

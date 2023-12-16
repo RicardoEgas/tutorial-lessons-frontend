@@ -18,6 +18,15 @@ function Signup({ hideSplash }) {
     e.preventDefault();
 
     try {
+      console.log('Request Payload:', {
+        user: {
+          name: name,
+          email: email,
+          password: password,
+          password_confirmation: confirmPassword,
+        },
+      });
+      
       const response = await fetch('http://localhost:3000/api/v1/users', {
         method: 'POST',
         headers: {

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import customApi from "../utils/axios";
-import { saveToken, getToken, removeToken } from "../utils/localStorage";
+import { saveToken } from "../utils/localStorage";
 
 const makeApiCall = async (endpoint, user, thunkAPI) => {
   try {

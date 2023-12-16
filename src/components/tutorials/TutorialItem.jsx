@@ -12,13 +12,13 @@ const TutorialItem = ({ data }) => {
       <div className="mb-4 grid place-items-center rounded-full w-52 h-52 mx-auto bg-gray-100">
         <img
           src={data.photo || 'https://via.placeholder.com/150'}
-          alt={data.name}
+          alt={data.title}
           className="object-cover rounded"
         />
       </div>
 
       <h2 className="font-semi-bold px-4 pt-2 pb-3 border-b border-b-2 border-dashed border-gray-300 text-gray-700 inline-block text-gray-700 text-lg">
-        {data.name}
+        {data.title}
       </h2>
 
       <div className="pt-2">

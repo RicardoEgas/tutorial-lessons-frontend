@@ -9,11 +9,14 @@ const getTutorials = createAsyncThunk(
   async (thunkAPI) => {
     try {
       const response = await customApi.get('/api/v1/tutorials');
+      console.log(response.data);
       return response.data;
+      
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data.errors || 'Unknown error');
     }
-  }
+  } 
+ 
 );
 
 const deleteTutorial = createAsyncThunk(
@@ -64,7 +67,10 @@ const tutorialSlice = createSlice({
       })
       .addCase(getTutorials.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.tutorials = action.payload.data;
+        // state.tutorials = action.payload.data;
+        // console.log('Tutorials from API:', action.payload.data);
+        state.tutorials = action.payload.tutorials;
+        console.log('Tutorials from API:', action.payload.tutorials);
       })
       .addCase(getTutorials.rejected, (state, action) => {
         state.isLoading = false;

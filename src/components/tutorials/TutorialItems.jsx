@@ -7,7 +7,8 @@ import TutorialItem from './TutorialItem';
 const TutorialItems = () => {
   const dispatch = useDispatch();
   const tutorials = useSelector((state) => state.tutorials.tutorials);
-
+  console.log('Tutorials from Redux:', tutorials);
+  
   useEffect(() => {
     dispatch(getTutorials());
   }, [dispatch]);
@@ -25,7 +26,7 @@ const TutorialItems = () => {
         </p>
         <span className="w-32 border-b-2 border-dashed border-gray-300 inline-block mt-4"></span>
       </header>
-
+{/* 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {tutorials && tutorials.map((tutorial) => (
           <TutorialItem key={tutorial.id} data={tutorial} />
@@ -33,6 +34,16 @@ const TutorialItems = () => {
       </div>
     </div>
   );
+}; */}
+ <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {tutorials && tutorials.map((tutorial) => {
+          console.log(tutorial);
+          return <TutorialItem key={tutorial.id} data={tutorial} />
+        })}
+      </div>
+    </div>
+  );
 };
+
 
 export default TutorialItems;

@@ -35,8 +35,7 @@ function Login({ hideSplash }) {
 
     try {
       // Dispatch the logInUser action
-      await dispatch(logInUser({ email, password }));
-      console.log('isAuthenticated: ', isAuthenticated);     
+      await dispatch(logInUser({ email, password }));   
     } catch (error) {
       console.error('Error during login', error);
     }

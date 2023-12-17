@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux'; // Import useDispatch and useSelector
-import { registerUser } from '../../redux/userSlice'; // Replace '<your-path>' with the actual path to your userSlice
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../../redux/userSlice';
 
 import './Login.css';
 

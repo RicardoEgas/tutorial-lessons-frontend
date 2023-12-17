@@ -2,12 +2,16 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { logInUser } from '../../redux/userSlice'; // Replace '<your-path>' with the actual path to your userSlice
+import { logInUser } from '../../redux/userSlice';
 import './Login.css';
 
 function Login({ hideSplash }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const goToDestination = () => {
+    navigate('/home')
+  }
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,9 +20,15 @@ function Login({ hideSplash }) {
     hideSplash();
   }, [hideSplash]);
 
-  const isLoading = useSelector((state) => state.user.isLoading);
+  // const isLoading = useSelector((state) => state.user.isLoading);
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated)
   const error = useSelector((state) => state.user.error);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      goToDestination();
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -26,10 +36,7 @@ function Login({ hideSplash }) {
     try {
       // Dispatch the logInUser action
       await dispatch(logInUser({ email, password }));
-      console.log('isAuthenticated: ', isAuthenticated)
-      if(isAuthenticated) {
-        navigate('/home')
-      }      
+      console.log('isAuthenticated: ', isAuthenticated);     
     } catch (error) {
       console.error('Error during login', error);
     }

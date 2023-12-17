@@ -1,15 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import customApi from "../utils/axios";
-import { saveToken } from "../utils/localStorage";
+import { saveToken, getToken, removeToken } from "../utils/localStorage";
+import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 
+const baseURL = 'http://localhost:3000/api/v1';
 const makeApiCall = async (endpoint, user, thunkAPI) => {
   try {
-    const response = await customApi.post(endpoint, user);
+    const response = await axios.post(`${baseURL}${endpoint}`,
+      { 
+        user : user
+      });
 
     const data = await response.data;
 
     if (response.status === 201 || response.status === 200) {
-      return { user: data };
+      console.log(data.message)
+      return data;
     }
 
   } catch (error) {
@@ -22,12 +28,16 @@ const makeApiCall = async (endpoint, user, thunkAPI) => {
 
 const registerUser = createAsyncThunk(
   'user/registerUser',
-  async (user, thunkAPI) => makeApiCall('/auth', user, thunkAPI)
+  async (user, thunkAPI) => {
+    console.log('the user', user);
+    data = await makeApiCall('/users', user, thunkAPI)
+    return data.user
+  }
 );
 
 const logInUser = createAsyncThunk(
   'user/logInUser',
-  async (user, thunkAPI) => makeApiCall('/auth/sign_in', user, thunkAPI)
+  async (user, thunkAPI) => makeApiCall('/users/sign_in', user, thunkAPI)
 );
 
 const initialState = {
@@ -49,7 +59,8 @@ const userSlice = createSlice({
       .addCase(registerUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isAuthenticated = true;
-        state.user = action.payload.user.data;
+        state.user = action.payload.data;
+        console.log(state.user)
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.isLoading = false;
@@ -64,8 +75,9 @@ const userSlice = createSlice({
       .addCase(logInUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isAuthenticated = true;
-        state.user = action.payload.user.data;
-        saveToken(action.payload.user.data.token)
+        console.log('the payload: ', action.payload);
+        // navigate('/tutorias/new')
+        saveToken(action.payload.token)
       })
       .addCase(logInUser.rejected, (state, action) => {
         state.isLoading = false;

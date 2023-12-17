@@ -1,14 +1,22 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'; // Import useDispatch and useSelector
+import { registerUser } from '../../redux/userSlice'; // Replace '<your-path>' with the actual path to your userSlice
+
 import './Login.css';
 
 function Signup({ hideSplash }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const navigate = useNavigate();
+
+  const isLoading = useSelector((state) => state.user.isLoading);
+  const error = useSelector((state) => state.user.error);
 
   useEffect(() => {
     hideSplash();
@@ -17,42 +25,16 @@ function Signup({ hideSplash }) {
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    try {
-      console.log('Request Payload:', {
-        user: {
-          name: name,
-          email: email,
-          password: password,
-          password_confirmation: confirmPassword,
-        },
-      });
-      
-      const response = await fetch('http://localhost:3000/api/v1/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          user: {
-            name: name,
-            email: email,
-            password: password,
-            password_confirmation: confirmPassword,
-          },
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log('Signup successful', data);
+    // Dispatch the registerUser action
+    dispatch(registerUser({ name, email, password, password_confirmation: confirmPassword }))
+      .then((response) => {
+        // Handle successful registration
         navigate('/login');
-      } else {
-        console.error('Signup failed', data.errors);
-      }
-    } catch (error) {
-      console.error('Error during signup', error);
-    }
+      })
+      .catch((err) => {
+        // Handle registration failure
+        console.error('Signup failed', err);
+      });
   };
 
   return (

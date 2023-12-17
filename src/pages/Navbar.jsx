@@ -4,15 +4,18 @@ import { FaBars, FaArrowLeft } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { removeToken } from '../utils/localStorage';
 // import TutorialItems  from './tutorials/TutorialItems'
+import { signout } from '../redux/userSlice';
+import { useDispatch } from 'react-redux';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const handleSignOut = () => {
-    removeToken();
+    dispatch(signout());
   }
 
   return (

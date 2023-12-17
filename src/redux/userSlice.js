@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { saveToken, getToken, removeToken } from "../utils/localStorage";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
 
 const baseURL = 'http://localhost:3000/api/v1';
 const makeApiCall = async (endpoint, user, thunkAPI) => {
@@ -40,6 +39,7 @@ const logInUser = createAsyncThunk(
   async (user, thunkAPI) => makeApiCall('/users/sign_in', user, thunkAPI)
 );
 
+
 const initialState = {
   user: null,
   isAuthenticated: false,
@@ -47,10 +47,18 @@ const initialState = {
   error: null,
 };
 
+const handleSignout = () => {
+  removeToken();
+  state.isAuthenticated = false;
+  state.user = null;
+}
+
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    signout: handleSignout,
+  },
   extraReducers: (builder) => {
     builder
       .addCase(registerUser.pending, (state) => {
@@ -88,5 +96,6 @@ const userSlice = createSlice({
   },
 });
 
-export { registerUser, logInUser };
+const { signout } = userSlice.actions;
+export { registerUser, logInUser, signout };
 export default userSlice.reducer;

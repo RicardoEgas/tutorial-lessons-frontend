@@ -1,14 +1,14 @@
 // import React from 'react';
+// import TutorialDetail from "../components/tutorials/TutorialDetail"
+// const Main = () => {
+//   return (
+//     <div>
+//       <TutorialDetail />
+//     </div>
+//   )
+// }
 
-const Main = () => {
-  return (
-    <div>
-      <h1>Main</h1>
-    </div>
-  )
-}
-
-export default Main
+// export default Main
 // import React from 'react';
 // import { createRoot } from 'react-dom/client';
 // import App from '../App.jsx';

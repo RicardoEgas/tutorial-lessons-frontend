@@ -65,7 +65,7 @@ const Footer = () => {
       </section>
       <section className="copyright">
         <p className="text-center text-gray-500 text-xs py-2">
-          &copy; 2023 ConsoleHub. SRR.
+          &copy; 2023 TutorialScheduler. SRR.
         </p>
       </section>
     </div>

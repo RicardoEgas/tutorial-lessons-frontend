@@ -1,42 +1,35 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { logInUser } from '../../redux/userSlice'; // Replace '<your-path>' with the actual path to your userSlice
 import './Login.css';
 
 function Login({ hideSplash }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
 
   useEffect(() => {
     hideSplash();
   }, [hideSplash]);
 
+  const isLoading = useSelector((state) => state.user.isLoading);
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated)
+  const error = useSelector((state) => state.user.error);
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/api/v1/users/sign_in', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          user: {
-            email: email,
-            password: password,
-          },
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log('Login successful', data);
-        navigate('/home');
-      } else {
-        console.error('Login failed', data.error);
-      }
+      // Dispatch the logInUser action
+      await dispatch(logInUser({ email, password }));
+      console.log('isAuthenticated: ', isAuthenticated)
+      if(isAuthenticated) {
+        navigate('/home')
+      }      
     } catch (error) {
       console.error('Error during login', error);
     }

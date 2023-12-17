@@ -1,13 +1,25 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getToken } from "../../utils/localStorage";
 import customApi from "../../utils/axios";
 
 const createReservation = createAsyncThunk(
   "reserveTutorial/createReservation",
-  async (reservation, thunkAPI) => {
+  // async (reservation, thunkAPI) => {
+    async (tutorialId, thunkAPI) => {
+    // const token = getToken();
     try {
-      const response = await customApi.post(
-        "/api/v1/reservations",
-        { reservation: reservation }
+      const token = getToken();
+      if (!token) {
+        return thunkAPI.rejectWithValue('No authentication token found');
+      }
+      // const response = await customApi.post(
+        // "/api/v1/user_reservations",
+        const response = await customApi.post(
+          `/api/v1/tutorials/${tutorialId}/reservations`,
+        { reservation: reservation },
+        {
+          headers: token
+        }
       );
 
       const data = await response.data;
@@ -30,11 +42,11 @@ const createReservation = createAsyncThunk(
 );
 
 const deleteReservation = createAsyncThunk(
-  "reserveConsole/deleteReservation",
+  "reserveTutorial/deleteReservation",
   async (reservation_id, thunkAPI) => {
     try {
       const response = await customApi.delete(
-        `/api/v1/reservations/${reservation_id}`
+        `/api/v1/user_reservations/${reservation_id}`
       );
       const data = await response.data;
       if (response.status === 200) {

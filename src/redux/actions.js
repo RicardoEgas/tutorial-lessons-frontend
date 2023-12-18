@@ -1,18 +1,17 @@
 import customApi from '../utils/axios';
-import { getToken } from '../utils/localStorage';
+// import { getToken } from '../utils/localStorage';
 
-const token = getToken;
+// const token = getToken;
 export const addTutorial = (tutorialData) => {
   return async (dispatch) => {
     try {
       const response = await customApi.post(
         '/api/v1/tutorials', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        },
-        { 
+          // headers: {
+          //   Authorization: `Bearer ${token}`,
+          //   'Content-Type': 'application/json',
+          // },
+        
           tutorial: tutorialData 
         });
       dispatch({

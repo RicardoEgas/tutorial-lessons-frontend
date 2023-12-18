@@ -10,10 +10,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   const handleSignOut = () => {
     dispatch(signout());
   }
@@ -55,7 +51,6 @@ const Navbar = () => {
             Logout
           </NavLink>
         </li>
-
       </ul>
 
       <div className={`lg:block mt-40 ${isOpen ? 'nav-footer' : 'hidden'}`}>
@@ -82,6 +77,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
+}
 
-export default Navbar;
+export default Navbar

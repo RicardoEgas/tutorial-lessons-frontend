@@ -1,4 +1,12 @@
 // import React from 'react';
+// import TutorialDetail from "../components/tutorials/TutorialDetail"
+// const Main = () => {
+//   return (
+//     <div>
+//       <TutorialDetail />
+//     </div>
+//   )
+// }
 
 const Main = () => {
   return (

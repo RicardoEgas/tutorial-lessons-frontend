@@ -12,7 +12,7 @@ const fetchUserReservations = createAsyncThunk(
         return thunkAPI.rejectWithValue('No authentication token found');
       }
 
-      const response = await customApi.get('/api/v1/reservations', {
+      const response = await customApi.get('/api/v1/user_reservations', {
         headers: token,
       });
       console.log(response);

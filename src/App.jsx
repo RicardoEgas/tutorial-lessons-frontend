@@ -16,6 +16,7 @@ import TutorialDetail from './components/tutorials/TutorialDetail';
 import Tutorials from './pages/tutorials';
 import DeleteTutorials from './pages/DeleteTutorials';
 import Home from './pages/Homepage';
+import Navbar from './pages/Navbar';
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -28,6 +29,7 @@ const App = () => {
     <>
       <Provider store={store}>
         {showSplash && <SplashScreen />}
+        <Navbar />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/details/:id" element={<Detail />} />

@@ -6,8 +6,8 @@ import { fetchUserReservations } from '../../redux/reservations/reservationsSlic
 const ReservationItem = ({ data }) => {
   const dispatch = useDispatch();
 
-  const handleDelete = (id) => {
-    dispatch(deleteReservation(id)).then(() => {
+  const handleDelete = (bothId) => {
+    dispatch(deleteReservation(bothId)).then(() => {
       dispatch(fetchUserReservations());
     });
   };
@@ -40,7 +40,10 @@ const ReservationItem = ({ data }) => {
 
       <button
         type="button"
-        onClick={() => handleDelete(data.reservation.id)}
+        onClick={() => handleDelete({
+          tutorialId: data.tutorial.id,
+          reservationId: data.reservation.id
+        })}
         className="border border-lime-400 text-lime-500 hover:border-red-500 hover:bg-red-500 hover:text-white py-2 px-4 rounded mt-4"
       >
         Cancel reservation

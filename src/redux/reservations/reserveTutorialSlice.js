@@ -52,10 +52,13 @@ const createReservation = createAsyncThunk(
 
 const deleteReservation = createAsyncThunk(
   "reserveTutorial/deleteReservation",
-  async (reservation_id, thunkAPI) => {
+  async (bothId, thunkAPI) => {
+    const token = getToken();
+    const tutorialId = bothId.tutorialId;
+    const reservationId = bothId.reservationId;
     try {
       const response = await customApi.delete(
-        `/api/v1/user_reservations/${reservation_id}`,
+        `/api/v1/tutorials/${tutorialId}/reservations/${reservationId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

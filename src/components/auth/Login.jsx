@@ -50,7 +50,9 @@ function Login() {
             type="email"
             name="email"
             id="email"
-            placeholder="E-mail" 
+            placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)} 
           />
           <input
             required=""
@@ -59,6 +61,8 @@ function Login() {
             name="password"
             id="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <span className="forgot-password">
             <Link to={'/reset-password'}>Forgot Password ?</Link>

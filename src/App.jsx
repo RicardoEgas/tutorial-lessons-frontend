@@ -9,7 +9,6 @@ import Signup from './components/auth/Signup'
 import SplashScreen from './components/splash-screen/SplashScreen'
 import AddClassForm from './components/Classes'
 // import Home from './components/home/Home';
-import { Provider } from 'react-redux';
 // import Layout from './components/auth/Layout';
 // import Main from './pages/Main';
 // import Detail from './pages/Details';
@@ -20,13 +19,11 @@ import Reservations from './pages/Reservations';
 import ReserveTutorial from './components/reservations/ReserveTutorial';
 // import ResetPassword from './components/auth/ResetPassword';
 // import SplashScreen from './components/splash-screen/SplashScreen';
-import store from './redux/store';
 import AddTutorial from './pages/AddTutorial';
 import TutorialDetail from './components/tutorials/TutorialDetail';
 import Tutorials from './pages/tutorials';
-import DeleteTutorials from './pages/DeleteTutorials';
 import Home from './pages/Homepage';
-import Navbar from './pages/Navbar';
+import DeleteClass from './pages/Delete';
 
 
 const App = () => {
@@ -39,7 +36,7 @@ const App = () => {
           <Route path="/reservations" element={<Reservations />} />
           <Route path="new" element={<AddTutorial />} />
           <Route path="reserve/:tutorialId" element={<ReserveTutorial />} />
-          <Route path="/tutorials/delete" element={<DeleteTutorials />} />
+          <Route path="/delete" element={<DeleteClass/>}></Route>
           <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />

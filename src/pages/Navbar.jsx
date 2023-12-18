@@ -2,18 +2,25 @@
 import { useState } from 'react';
 import { FaBars, FaArrowLeft } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
-
+// import TutorialItems  from './tutorials/TutorialItems'
+import { signout } from '../redux/userSlice';
+import { useDispatch } from 'react-redux';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleSignOut = () => {
+    dispatch(signout());
+  }
+  
 
   return (
-    ['/', '/login', '/signup'].includes(window.location.pathname) ? null : (
-    <nav className="bg-white text-[#4c4c4c] border-r border-gray-400 fixed h-full flex flex-col transition-transform duration-300 transform translate-x-0 lg:translate-x-0 lg:w-40 lg:items-center"style={{ zIndex: 1000 }}>
+    ['/home', '/login', '/signup'].includes(window.location.pathname) ? null : (
+      <nav className="bg-white text-[#4c4c4c] border-r border-gray-400 fixed h-full flex flex-col transition-transform duration-300 transform translate-x-0 lg:translate-x-0 lg:w-40 lg:items-center"style={{ zIndex: 1000 }}>
       {/* Hamburger button for smaller screens */}
       <div className="lg:hidden cursor-pointer p-4" onClick={toggleMenu}>
         {isOpen ? <FaArrowLeft /> : <FaBars />}
@@ -29,6 +36,17 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className="p-4 cursor-pointer">
+          <NavLink to="/details/1" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
+            Details
+          </NavLink>
+        </li>
+        <li className="p-4 cursor-pointer">
+          <NavLink to="/tutorials" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
+            Tutorials
+            {/* <TutorialItems /> */}
+          </NavLink>
+        </li>
+        <li className="p-4 cursor-pointer">
           <NavLink to="/reservations" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
             Reservations
           </NavLink>
@@ -38,6 +56,12 @@ const Navbar = () => {
             Add class
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/" onClick={() => handleSignOut()} className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
+            Logout
+          </NavLink>
+        </li>
+
       </ul>
 
       <div className={`lg:block mt-40 ${isOpen ? 'nav-footer' : 'hidden'}`}>

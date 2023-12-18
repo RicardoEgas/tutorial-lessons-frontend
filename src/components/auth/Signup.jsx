@@ -1,7 +1,41 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
+import { useState } from 'react';
+// import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../../redux/userSlice';
 
 function Signup() {
+/* eslint-disable react/prop-types */
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const isLoading = useSelector((state) => state.user.isLoading);
+  const error = useSelector((state) => state.user.error);
+
+  // useEffect(() => {
+  //   hideSplash();
+  // }, [hideSplash]);
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    // Dispatch the registerUser action
+    dispatch(registerUser({ name, email, password, password_confirmation: confirmPassword }))
+      .then((response) => {
+        navigate('/login');
+      })
+      .catch((err) => {
+        // Handle registration failure
+        console.error('Signup failed', err);
+      });
+  };
+
   return (
     <section className='form-auth'>
       <div className="container">

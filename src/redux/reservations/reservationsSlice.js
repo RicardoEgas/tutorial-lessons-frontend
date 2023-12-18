@@ -19,26 +19,8 @@ const fetchUserReservations = createAsyncThunk(
         });
       console.log(response);
 
-      const reservations = await Promise.all(
-        response.data.map(async (reservation) => {
-          const tutorialResponse = await customApi.get(
-            `/api/v1/tutorials/${reservation.tutorial_id}`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
-
-          const tutorialData = tutorialResponse.data;
-          return {
-            id: reservation.id,
-            user_id: reservation.user_id,
-            reserve_date: reservation.reserve_date,
-            tutorial: tutorialData.data,
-          };
-        })
-      );
+      const reservations = response.data;
+      console.log('reservations ', reservations);
 
       return reservations;
     } catch (error) {
@@ -71,9 +53,9 @@ const reservationsSlice = createSlice({
       .addCase(fetchUserReservations.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(fetchUserReservations.fulfilled, (state, { payload }) => {
+      .addCase(fetchUserReservations.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.reservations = payload;
+        state.reservations = action.payload;
       })
       .addCase(fetchUserReservations.rejected, (state, { payload }) => {
         state.isLoading = false;

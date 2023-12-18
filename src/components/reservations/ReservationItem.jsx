@@ -13,7 +13,7 @@ const ReservationItem = ({ data }) => {
   };
 
   return (
-    <div key={data.id} className="rounded p-4 text-center w-full">
+    <div key={data.reservation.id} className="rounded p-4 text-center w-full">
       <div className="mb-4 grid place-items-center rounded-full w-52 h-52 mx-auto bg-gray-100">
         <img
           src={data.tutorial.photo || 'https://via.placeholder.com/150'}
@@ -30,7 +30,7 @@ const ReservationItem = ({ data }) => {
         <p>
           Date:{' '}
           <span className="text-gray-500 font-semibold">
-            {data.reserve_date.split('T')[0]}
+            {data.reservation.reserve_date.split('T')[0]}
           </span>
         </p>
         {/* <p>
@@ -40,7 +40,7 @@ const ReservationItem = ({ data }) => {
 
       <button
         type="button"
-        onClick={() => handleDelete(data.id)}
+        onClick={() => handleDelete(data.reservation.id)}
         className="border border-lime-400 text-lime-500 hover:border-red-500 hover:bg-red-500 hover:text-white py-2 px-4 rounded mt-4"
       >
         Cancel reservation

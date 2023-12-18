@@ -18,10 +18,6 @@ function Signup() {
   const isLoading = useSelector((state) => state.user.isLoading);
   const error = useSelector((state) => state.user.error);
 
-  // useEffect(() => {
-  //   hideSplash();
-  // }, [hideSplash]);
-
   const handleSignup = async (e) => {
     e.preventDefault();
 

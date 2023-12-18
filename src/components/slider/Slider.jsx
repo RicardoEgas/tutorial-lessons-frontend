@@ -43,7 +43,7 @@ const Slider = ({ Component, storedData }) => {
       className="static w-full py-4"
     >
       {storedData.map((data) => (
-        <SwiperSlide key={data.id}>
+        <SwiperSlide key={data.reservation.id}>
           <Component data={data} />
         </SwiperSlide>
       ))}

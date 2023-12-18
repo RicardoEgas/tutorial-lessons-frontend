@@ -24,7 +24,12 @@ const Navbar = () => {
   }
 
   return (
-<nav className="bg-white text-[#4c4c4c] border-r border-gray-400 fixed h-full flex flex-col transition-transform duration-300 transform translate-x-0 lg:translate-x-0 lg:w-80 lg:items-center" style={{ zIndex: 1000 }}>
+    <nav
+      className={`text-[#4c4c4c] border-r border-gray-400 fixed h-full flex flex-col transition-transform duration-300 transform translate-x-0 lg:translate-x-0 lg:w-80 lg:items-center ${
+        isOpen ? 'bg-white' : 'bg-transparent'
+      }`}
+      style={{ zIndex: 1000 }}
+    >
       {/* Hamburger button for smaller screens */}
       <div className="lg:hidden cursor-pointer p-4" onClick={toggleMenu}>
         {isOpen ? <FaArrowLeft /> : <FaBars />}

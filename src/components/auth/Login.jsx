@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { logInUser } from '../../redux/userSlice';
 import './Login.css';
 
-function Login({ hideSplash }) {
+function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -15,10 +15,6 @@ function Login({ hideSplash }) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  useEffect(() => {
-    hideSplash();
-  }, [hideSplash]);
 
   // const isLoading = useSelector((state) => state.user.isLoading);
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated)

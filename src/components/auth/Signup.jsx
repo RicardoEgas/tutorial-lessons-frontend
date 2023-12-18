@@ -1,12 +1,12 @@
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './Login.css';
-import { useState } from 'react';
-// import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../redux/userSlice';
 
+import './Login.css';
+
 function Signup() {
-/* eslint-disable react/prop-types */
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -28,6 +28,7 @@ function Signup() {
     // Dispatch the registerUser action
     dispatch(registerUser({ name, email, password, password_confirmation: confirmPassword }))
       .then((response) => {
+        // Handle successful registration
         navigate('/login');
       })
       .catch((err) => {
@@ -40,14 +41,16 @@ function Signup() {
     <section className='form-auth'>
       <div className="container">
         <div className="heading">Sign Up</div>
-        <form action="" className="form">
+        <form action="" className="form" onSubmit={handleSignup}>
           <input
             required=""
             className="input"
             type="text"
             name="name"
             id="name"
-            placeholder="Name" 
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
             required=""
@@ -55,7 +58,9 @@ function Signup() {
             type="email"
             name="email"
             id="email"
-            placeholder="E-mail" 
+            placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             required=""
@@ -64,6 +69,8 @@ function Signup() {
             name="password"
             id="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <input
             required=""
@@ -72,6 +79,8 @@ function Signup() {
             name="confirm-password"
             id="password"
             placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <input
             className="login-button"

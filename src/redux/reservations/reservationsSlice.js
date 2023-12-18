@@ -6,21 +6,28 @@ const fetchUserReservations = createAsyncThunk(
   'user/fetchUserReservations',
   async (_, thunkAPI) => {
     try {
-      // Assuming there is no token needed for this request
       const token = getToken();
       if (!token) {
         return thunkAPI.rejectWithValue('No authentication token found');
       }
 
-      const response = await customApi.get('/api/v1/user_reservations', {
-        headers: token,
-      });
+      const response = await customApi.get('/api/v1/user_reservations', 
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
       console.log(response);
 
       const reservations = await Promise.all(
         response.data.map(async (reservation) => {
           const tutorialResponse = await customApi.get(
-            `/api/v1/tutorials/${reservation.tutorial_id}`
+            `/api/v1/tutorials/${reservation.tutorial_id}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
           );
 
           const tutorialData = tutorialResponse.data;

@@ -5,7 +5,9 @@ import { useDispatch } from 'react-redux';
 import { createReservation } from '../../redux/reservations/reserveTutorialSlice';
 import { useState } from 'react';
 
+
 import bgImage from '../../images/form-bg-desktop.png';
+import { getToken } from '../../utils/localStorage';
 
 const ReserveTutorial = () => {
   const dispatch = useDispatch();
@@ -15,6 +17,8 @@ const ReserveTutorial = () => {
   const [formattedDate, setFormattedDate] = useState(null);
   const [errors, setErrors] = useState({ selectedDate: '' });
   // const user = useSelector((state) => state.user.user);
+  const token = getToken();
+  console.log('token state: ', token)
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -30,10 +34,10 @@ const ReserveTutorial = () => {
     );
   };
 
-  const reservation = {
-    tutorial_id: tutorialId,
-    reserve_date: formattedDate,
-  };
+  // const reservation = {
+  //   tutorial_id: tutorialId,
+  //   reserve_date: formattedDate,
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,7 +52,15 @@ const ReserveTutorial = () => {
       return;
     }
 
-    await dispatch(createReservation(reservation));
+    const newReservation = {
+      "reservation": {
+        "reserve_date": formattedDate
+      }
+    }
+
+    console.log('newReservation: ', newReservation);
+
+    await dispatch(createReservation(tutorialId, newReservation));
     navigate('/reservations');
     setSelectedDate('');
   };

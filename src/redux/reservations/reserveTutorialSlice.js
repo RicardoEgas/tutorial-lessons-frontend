@@ -1,26 +1,37 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getToken } from "../../utils/localStorage";
 import customApi from "../../utils/axios";
+// console.log('token: ', token);
 
 const createReservation = createAsyncThunk(
   "reserveTutorial/createReservation",
-    async (tutorialId, thunkAPI) => {
+    async (tutorialId, newReservation, token, thunkAPI) => {
     try {
       const token = getToken();
+      console.log('new reservation: ', newReservation);
+      console.log('token', token);
       if (!token) {
         return thunkAPI.rejectWithValue('No authentication token found');
       }
         const response = await customApi.post(
           `/api/v1/tutorials/${tutorialId}/reservations`,
-        { reservation: reservation },
+          {
+            reservation: {
+              reserve_date: "2023-12-31"
+            }
+          },
         {
-          headers: `Bearer ${token}`
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
         }
       );
 
       const data = await response.data;
       if (response.status === 201) {
         alert('Reservation created');
+        console.log('data', data);
         return data;
       }
     } catch (error) {
@@ -42,8 +53,13 @@ const deleteReservation = createAsyncThunk(
   async (reservation_id, thunkAPI) => {
     try {
       const response = await customApi.delete(
-        `/api/v1/user_reservations/${reservation_id}`
-      );
+        `/api/v1/user_reservations/${reservation_id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        });
       const data = await response.data;
       if (response.status === 200) {
         alert('Reservation deleted');

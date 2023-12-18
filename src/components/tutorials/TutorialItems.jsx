@@ -7,7 +7,7 @@ import TutorialItem from './TutorialItem';
 const TutorialItems = () => {
   const dispatch = useDispatch();
   const tutorials = useSelector((state) => state.tutorials.tutorials);
-  console.log('Tutorials from Redux:', tutorials);
+  // console.log('Tutorials from Redux:', tutorials);
   
   useEffect(() => {
     dispatch(getTutorials());
@@ -37,7 +37,7 @@ const TutorialItems = () => {
 }; */}
  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {tutorials && tutorials.map((tutorial) => {
-          console.log(tutorial);
+          {/* console.log(tutorial); */}
           return <TutorialItem key={tutorial.id} data={tutorial} />
         })}
       </div>

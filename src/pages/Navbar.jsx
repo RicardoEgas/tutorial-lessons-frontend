@@ -10,6 +10,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   const handleSignOut = () => {
     dispatch(signout());
   }
@@ -26,7 +30,7 @@ const Navbar = () => {
           <h1 className='font-bold text-black py-4'>Logo</h1>
         </li>
         <li className="p-4 cursor-pointer">
-          <NavLink to="/" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
+          <NavLink to="/home" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
             Home
           </NavLink>
         </li>
@@ -51,6 +55,7 @@ const Navbar = () => {
             Logout
           </NavLink>
         </li>
+
       </ul>
 
       <div className={`lg:block mt-40 ${isOpen ? 'nav-footer' : 'hidden'}`}>
@@ -77,6 +82,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

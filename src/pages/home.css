@@ -1,6 +1,8 @@
 .home {
   position: relative;
   padding-top: 6%;
+  width: 75%;
+  margin: auto;
 }
 
 .home h1 {

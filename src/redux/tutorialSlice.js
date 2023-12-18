@@ -9,7 +9,7 @@ const getTutorials = createAsyncThunk(
   async (thunkAPI) => {
     try {
       const response = await customApi.get('/api/v1/tutorials');
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
       
     } catch (error) {
@@ -70,7 +70,7 @@ const tutorialSlice = createSlice({
         // state.tutorials = action.payload.data;
         // console.log('Tutorials from API:', action.payload.data);
         state.tutorials = action.payload.tutorials;
-        console.log('Tutorials from API:', action.payload.tutorials);
+        // console.log('Tutorials from API:', action.payload.tutorials);
       })
       .addCase(getTutorials.rejected, (state, action) => {
         state.isLoading = false;

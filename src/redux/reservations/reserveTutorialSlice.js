@@ -5,28 +5,30 @@ import customApi from "../../utils/axios";
 
 const createReservation = createAsyncThunk(
   "reserveTutorial/createReservation",
-    async (tutorialId, newReservation, token, thunkAPI) => {
+    async (newReservation, thunkAPI) => {
     try {
       const token = getToken();
-      console.log('new reservation: ', newReservation);
+      const tutorialId = newReservation.tutorialId;
+      const reserveDate = newReservation.reserveDate;
       console.log('token', token);
+      console.log('tutorial id: ', tutorialId);
+      console.log('formatted date: ', reserveDate);
       if (!token) {
         return thunkAPI.rejectWithValue('No authentication token found');
       }
-        const response = await customApi.post(
-          `/api/v1/tutorials/${tutorialId}/reservations`,
-          {
-            reservation: {
-              reserve_date: "2023-12-31"
-            }
-          },
+      const response = await customApi.post(
+        `/api/v1/tutorials/${tutorialId}/reservations`,
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+          reservation: {
+            reserve_date: reserveDate
+          }
+        },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
 
       const data = await response.data;
       if (response.status === 201) {

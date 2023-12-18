@@ -53,14 +53,14 @@ const ReserveTutorial = () => {
     }
 
     const newReservation = {
-      "reservation": {
-        "reserve_date": formattedDate
-      }
+        tutorialId: tutorialId,
+        reserveDate: formattedDate
     }
 
     console.log('newReservation: ', newReservation);
+    console.log('formatted date', formattedDate);
 
-    await dispatch(createReservation(tutorialId, newReservation));
+    await dispatch(createReservation(newReservation));
     navigate('/reservations');
     setSelectedDate('');
   };

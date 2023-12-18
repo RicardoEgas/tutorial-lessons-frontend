@@ -18,7 +18,7 @@ function Login() {
 
   // const isLoading = useSelector((state) => state.user.isLoading);
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated)
-  const error = useSelector((state) => state.user.error);
+  // const error = useSelector((state) => state.user.error);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -43,7 +43,7 @@ function Login() {
     <section className='form-auth'>
       <div className="container">
         <div className="heading">Sign In</div>
-        <form action="" className="form">
+        <form action="" className="form" onSubmit={handleLogin}>
           <input
             required=""
             className="input"

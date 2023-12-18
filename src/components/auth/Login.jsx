@@ -16,9 +16,13 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // useEffect(() => {
+  //   hideSplash();
+  // }, [hideSplash]);
+
   // const isLoading = useSelector((state) => state.user.isLoading);
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated)
-  // const error = useSelector((state) => state.user.error);
+  const error = useSelector((state) => state.user.error);
 
   useEffect(() => {
     if (isAuthenticated) {

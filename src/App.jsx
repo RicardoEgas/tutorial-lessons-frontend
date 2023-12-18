@@ -33,7 +33,6 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
       <Routes>
           <Route path="/tutorials" element={<Tutorials />} />
           <Route path="tutorial/:id" element={<TutorialDetail />} />

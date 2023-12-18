@@ -43,8 +43,8 @@ const App = () => {
             <Route path="reserve/:tutorialId" element={<ReserveTutorial />} />
             <Route path="/tutorials/delete" element={<DeleteTutorials />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/signup" element={<Signup hideSplash={hideSplash} />} />
-            <Route path="/login" element={<Login hideSplash={hideSplash} />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/" element={<SplashScreen />} />
             <Route path="/details/:id" element={<Detail/>}></Route>
             <Route path="/classes" element={<AddClassForm/>}></Route>

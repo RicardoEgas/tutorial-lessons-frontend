@@ -37,16 +37,11 @@ const Navbar = () => {
       </div>
       <ul className={`lg:flex lg:flex-col lg:items-center ${isOpen ? 'block' : 'hidden'}`}>
   <li className='hidden lg:block'>
-    <img src='logo-nw-nw.png' alt='Logo' className='py-4' style={{ width: '150px', height: '80px', margin: '20px' }} />
+    <img src='logo-nw-nw.png' alt='Logo' className='py-4' style={{ width: '100px', height: '50px', margin: '20px' }} />
   </li>
+  {console.log('Image Path:', 'new-logo.png')} 
 
-
-
-      {/* <ul className={`lg:flex lg:flex-col lg:items-center ${isOpen ? 'block' : 'hidden'}`}>
-        <li className='hidden lg:block'>
-        <img src='../../images/logo-nw.png' alt='Logo' className='py-4' /> */}
-        {/* </li> */}
-
+  
         <li className="p-4 cursor-pointer">
           <NavLink to="/tutorials" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
             Tutorial List

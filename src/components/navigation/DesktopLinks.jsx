@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 const links = [
   { path: '/tutorials', text: 'Tutorials' },
   { path: '/reservations', text: 'Reservations' },
-  { path: '/tutorials/new', text: 'Add new tutorial' },
+  { path: '/tutorials/create', text: 'Add new tutorial' },
   { path: '/tutorials/delete', text: 'Delete Tutorial' },
 ];
 

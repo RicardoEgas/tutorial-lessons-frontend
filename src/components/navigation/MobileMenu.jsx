@@ -68,7 +68,7 @@ import { useNavigate } from 'react-router-dom'; // Add this line
 const links = [
   { path: '/tutorials', text: 'Tutorials' },
   { path: '/reservations', text: 'Reservations' },
-  { path: '/tutorials/new', text: 'Add new tutorial' },
+  { path: '/tutorials/create', text: 'Add new tutorial' },
   { path: '/tutorials/delete', text: 'Delete Tutorial' },
 ];
 

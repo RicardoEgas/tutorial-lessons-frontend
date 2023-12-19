@@ -41,7 +41,7 @@ const App = () => {
             {/* <Route index element={<Tutorials />} /> */}
              <Route path="tutorial/:id" element={<TutorialDetail />} />
           <Route path="/reservations" element={<Reservations />} />
-          <Route path="new" element={<AddTutorial />} />
+          <Route path="create" element={<AddTutorial />} />
             <Route path="reserve/:tutorialId" element={<ReserveTutorial />} />
             <Route path="/tutorials/delete" element={<DeleteTutorials />} />
             {/* </Route> */}

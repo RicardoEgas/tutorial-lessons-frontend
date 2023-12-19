@@ -20,20 +20,20 @@ const TutorialDetail = () => {
     }, [id, tutorials]);
   
     return (
-      <div className="flex flex-col items-center justify-center h-full">
+      <div className="flex flex-col items-center justify-center h-full tutorials tutorial_1">
         {theTutorial ? (
-          <div className="flex w-full justify-between items-center">
-            <div className="w-3/5">
+          <div className="flex w-full justify-between items-center tutorial-card">
+            <div className="tutorial-card_image">
               <img
                 src={theTutorial.photo}
                 alt={theTutorial.title}
                 className="w-full h-auto"
               />
             </div>
-            <div className="flex flex-col w-2/5 px-6">
+            <div className="tutorial-card_content">
               <div>
-                <p className="text-lg font-bold p-1">{theTutorial.title}</p>
-                <p className=" text-xs p-1">{theTutorial.description}</p>
+                <h2 className="text-6xl font-bold p-1">{theTutorial.title}</h2>
+                <p className=" text-2xl p-1">{theTutorial.description}</p>
                 <p className="text-md bg-secondary p-1">
                   Tutorial Price: {theTutorial.tutorial_price} $
                 </p>

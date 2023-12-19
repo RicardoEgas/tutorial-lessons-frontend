@@ -27,7 +27,7 @@ const makeApiCall = async (endpoint, user, thunkAPI) => {
 
 const registerUser = createAsyncThunk(
   'user/registerUser',
-  async (user, thunkAPI) => {
+  async (user, thunkAPI, data) => {
     console.log('the user', user);
     data = await makeApiCall('/users', user, thunkAPI)
     return data.user
@@ -49,7 +49,7 @@ const initialState = {
   error: null,
 };
 
-const handleSignout = () => {
+const handleSignout = (state) => {
   removeToken();
   state.isAuthenticated = false;
   state.user = null;

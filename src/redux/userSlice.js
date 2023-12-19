@@ -39,10 +39,12 @@ const logInUser = createAsyncThunk(
   async (user, thunkAPI) => makeApiCall('/users/sign_in', user, thunkAPI)
 );
 
+const storedToken = getToken();
+
 
 const initialState = {
   user: null,
-  isAuthenticated: false,
+  isAuthenticated: Boolean(storedToken),
   isLoading: false,
   error: null,
 };

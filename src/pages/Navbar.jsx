@@ -40,11 +40,11 @@ const Navbar = () => {
         <li className='hidden lg:block'>
           <h1 className='font-bold text-black py-4'>Logo</h1>
         </li>
-        {/* <li className="p-4 cursor-pointer">
+        <li className="p-4 cursor-pointer">
           <NavLink to="/tutorials" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
-            All Tutorials
+            Tutorial List
           </NavLink>
-        </li> */}
+        </li>
         <li className="p-4 cursor-pointer">
           <NavLink to="/home" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
             All Tutorials

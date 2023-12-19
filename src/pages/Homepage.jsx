@@ -4,6 +4,8 @@ import './home.css'
 
 const slideWidth = 30;
 
+console.log('hompage path: ', window.location.pathname)
+
 const _items =  [
   {
       course: {
@@ -136,6 +138,7 @@ const Home = () => {
 
   return (
     <>
+      <Navbar />
       <div className='home'>
         <h1>Welcome to Our Application</h1>
         <p className='home-paragraph'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae sequi, odit totam consequuntur doloremque beatae cum quidem, cupiditate possimus nihil alias harum laborum facilis maxime accusamus veritatis reiciendis repellat facere!</p>

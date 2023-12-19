@@ -1,24 +1,29 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { submitTutorialApiCall } from '../redux/tutorialSlice';
 
 const AddClassForm = () => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
-    name: "",
-    cost: "",
-    duration: "",
-    image: "",
+    name: '',
+    cost: '',
+    duration: '',
+    photo: '',
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    try {
+      const response = await submitTutorialApiCall(formData);
+      console.log('Tutorial submitted successfully:', response);
+    } catch (error) {
+      console.error('Error submitting tutorial:', error);
+    }
   };
 
   const backgroundStyle = {
@@ -117,8 +122,8 @@ const AddClassForm = () => {
               </label>
               <input
                 type="text"
-                id="image"
-                name="image"
+                id="photo"
+                name="photo"
                 value={formData.image}
                 onChange={handleChange}
                 className="w-full p-2 border rounded-md"

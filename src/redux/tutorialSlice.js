@@ -41,6 +41,35 @@ const deleteTutorial = createAsyncThunk(
   }
 );
 
+export const submitTutorialApiCall = async (formData) => {
+  try {
+    const requestData = {
+      tutorial: {
+        title: formData.name,
+        description: formData.description || '', 
+        tutorial_price: formData.cost,
+        scheduling_price: formData.duration,
+        photo: formData.photo,
+      },
+    };
+
+    const response = await customApi.post('/api/v1/tutorials', requestData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    console.log(response.data);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error.response?.data.errors || 'Unknown error';
+  }
+};
+
+
+
 const tutorialSlice = createSlice({
   name: 'tutorials',
   initialState: {
@@ -48,6 +77,12 @@ const tutorialSlice = createSlice({
     message: null,
     error: null,
     isLoading: false,
+    formData: {
+      name: '',
+      cost: '',
+      duration: '',
+      photo: '',
+    },
   },
   reducers: {
     addTutorial: (state, action) => {
@@ -58,6 +93,9 @@ const tutorialSlice = createSlice({
     },
     delConsole: (state, action) => {
       state.tutorials = state.tutorials.filter((tutorial) => tutorial.id !== action.payload);
+    },
+    updateFormData: (state, action) => {
+      state.formData = { ...state.formData, ...action.payload };
     },
   },
   extraReducers: (builder) => {
@@ -87,10 +125,10 @@ const tutorialSlice = createSlice({
       .addCase(deleteTutorial.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
+      })
   },
 });
 
-export const { addTutorial, setMessage, delTutorial } = tutorialSlice.actions;
+export const { addTutorial, setMessage, delTutorial, updateFormData } = tutorialSlice.actions;
 export default tutorialSlice.reducer;
 export { getTutorials, deleteTutorial };

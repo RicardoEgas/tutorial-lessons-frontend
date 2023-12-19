@@ -39,10 +39,13 @@ const logInUser = createAsyncThunk(
   async (user, thunkAPI) => makeApiCall('/users/sign_in', user, thunkAPI)
 );
 
+const storedToken = getToken();
+const storedUserString = localStorage.getItem('user');
+const storedUser = storedUserString ? JSON.parse(storedUserString) : null;
 
 const initialState = {
-  user: null,
-  isAuthenticated: false,
+  user: storedUser,
+  isAuthenticated: Boolean(storedToken),
   isLoading: false,
   error: null,
 };

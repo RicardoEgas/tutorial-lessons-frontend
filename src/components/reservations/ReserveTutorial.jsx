@@ -34,11 +34,6 @@ const ReserveTutorial = () => {
     );
   };
 
-  // const reservation = {
-  //   tutorial_id: tutorialId,
-  //   reserve_date: formattedDate,
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 

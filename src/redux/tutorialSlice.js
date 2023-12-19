@@ -67,10 +67,7 @@ const tutorialSlice = createSlice({
       })
       .addCase(getTutorials.fulfilled, (state, action) => {
         state.isLoading = false;
-        // state.tutorials = action.payload.data;
-        // console.log('Tutorials from API:', action.payload.data);
         state.tutorials = action.payload.tutorials;
-        // console.log('Tutorials from API:', action.payload.tutorials);
       })
       .addCase(getTutorials.rejected, (state, action) => {
         state.isLoading = false;

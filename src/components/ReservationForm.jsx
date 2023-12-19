@@ -1,6 +1,6 @@
 import './reservation.css'
 
-const Reservation = () => {
+const ReservationForm = () => {
   return (
     <section className='reservation flex justify-center items-center'>
       <div className="container mx-auto mt-8 p-4 bg-none border-none text-white max-w-md">
@@ -36,4 +36,4 @@ const Reservation = () => {
   );
 }
 
-export default Reservation;
+export default ReservationForm;

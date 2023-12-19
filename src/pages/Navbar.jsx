@@ -5,9 +5,11 @@ import { NavLink } from 'react-router-dom';
 // import TutorialItems  from './tutorials/TutorialItems'
 import { signout } from '../redux/userSlice';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -17,9 +19,11 @@ const Navbar = () => {
     dispatch(signout());
   }
   
+  if (!isAuthenticated) {
+    return null
+  }
 
   return (
-    ['/', '/login', '/signup'].includes(window.location.pathname) ? null : (
       <nav className="bg-white text-[#4c4c4c] border-r border-gray-400 fixed h-full flex flex-col transition-transform duration-300 transform translate-x-0 lg:translate-x-0 lg:w-60 lg:items-center"style={{ zIndex: 1000 }}>
       {/* Hamburger button for smaller screens */}
       <div className="lg:hidden cursor-pointer p-4" onClick={toggleMenu}>
@@ -88,7 +92,6 @@ const Navbar = () => {
       </div>
     </nav>
     )
-  );
 };
 
 export default Navbar;

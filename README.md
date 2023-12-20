@@ -67,3 +67,12 @@ To get a local copy up and running, follow these steps.
 ### Prerequisites
 
 In order to run this project you need a web browser.
+
+### Setup
+
+Clone this repository to your desired folder:
+
+```
+  cd Gaming-console-reservation-frontend
+  git clone https://github.com/RicardoEgas/tutorial-lessons-frontend.git
+```

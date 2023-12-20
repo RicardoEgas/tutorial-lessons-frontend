@@ -35,11 +35,13 @@ const Navbar = () => {
       <div className="lg:hidden cursor-pointer p-4" onClick={toggleMenu}>
         {isOpen ? <FaArrowLeft /> : <FaBars />}
       </div>
-
       <ul className={`lg:flex lg:flex-col lg:items-center ${isOpen ? 'block' : 'hidden'}`}>
-        <li className='hidden lg:block'>
-          <h1 className='font-bold text-black py-4'>Logo</h1>
-        </li>
+  <li className='hidden lg:block'>
+    <img src='logo-nw-nw.png' alt='Logo' className='py-4' style={{ width: '100px', height: '50px', margin: '20px' }} />
+  </li>
+  {console.log('Image Path:', 'new-logo.png')} 
+
+  
         <li className="p-4 cursor-pointer">
           <NavLink to="/tutorials" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
             Tutorial List

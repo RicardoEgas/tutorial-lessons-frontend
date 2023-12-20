@@ -50,3 +50,13 @@
     <li><a>https://redux.js.org/</a></li>
   </ul>
 </details>
+
+### Key Features <a name="key-features"></a>
+
+- [Render Tutorila lessons lists]
+- [Add Tutorials]
+- [Delete Tutorials]
+- [Reserve Tutorials]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+

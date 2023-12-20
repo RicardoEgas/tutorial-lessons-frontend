@@ -24,3 +24,7 @@
 # 📖 [Tutorial-lessaons-frontend] <a name="about-project"></a>
 
 [Tutorial-lessaons-frontend] is a frontend react app for our Tutorial lessons backend. It shows the features of the app and provides a user with better experience and interface
+
+## [Link to the Site]()
+
+## [Link to the back-end repo](https://github.com/RicardoEgas/tutorial-lessons-backend.git)

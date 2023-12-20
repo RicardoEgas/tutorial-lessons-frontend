@@ -22,24 +22,29 @@ const TutorialDetail = () => {
     return (
       <div className="flex flex-col items-center justify-center h-full tutorials tutorial_1">
         {theTutorial ? (
-          <div className="flex w-full justify-between items-center tutorial-card">
-            <div className="tutorial-card_image">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pt-56 mx-auto w-full max-w-screen-lg min-h-max lg: mr-24 tutorial-card">
+            <div className="text-center md:text-left tutorial-card_image">
               <img
                 src={theTutorial.photo}
                 alt={theTutorial.title}
-                className="w-full h-auto"
+                className="rounded-full w-full h-full object-cover mx-auto md:ml-0 md:mr-8"
               />
             </div>
-            <div className="tutorial-card_content">
-              <div>
-                <h2 className="text-6xl font-bold p-1">{theTutorial.title}</h2>
-                <p className=" text-2xl p-1">{theTutorial.description}</p>
-                <p className="text-md bg-secondary p-1">
-                  Tutorial Price: {theTutorial.tutorial_price} $
-                </p>
-                <p className="text-md p-1">
-                 Scheduling Price: {theTutorial.scheduling_price} $
-                </p>
+            <div className="flex flex-col justify-between tutorial-card_content">
+              <div className='text-center md:text-left'>
+                <h2 className="text-6xl font-bold mb-12">{theTutorial.title}</h2>
+                <table className="w-full table-fixed">
+              <tbody>
+                <tr className="bg-gray-100 flex items-center justify-around">
+                  <td className="font-bold">Tutorial Price:</td>
+                  <td>{theTutorial.tutorial_price}</td>
+                </tr>
+                <tr className="bg-gray-300 flex items-center justify-around">
+                  <td className="font-bold">Scheduling Price:</td>
+                  <td>{theTutorial.scheduling_price}</td>
+                </tr>
+              </tbody>
+                </table>
               </div>
               <div className="flex flex-col w-full justify-center items-center">
                 <Link to={`/reserve/${theTutorial.id}`}>

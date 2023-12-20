@@ -41,8 +41,6 @@ const Navbar = () => {
       <li className='hidden lg:block'>
         <img src={image} alt='Logo' className='py-4' style={{ width: '80px', height: '80px', margin: '20px' }} />
       </li>
-  {console.log('Image Path:', 'new-logo.png')} 
-
   
         <li className="p-4 cursor-pointer">
           <NavLink to="/tutorials" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
@@ -82,7 +80,7 @@ const Navbar = () => {
 
       </ul>
 
-      <div className={`lg:block mt-40 ${isOpen ? 'nav-footer' : 'hidden'}`}>
+      <div className={`lg:block mt-28 ${isOpen ? 'nav-footer' : 'hidden'}`}>
         <ul className="social-links-container ms-5 flex">
           <li>
             <i className="fab fa-facebook-f me-4 text-sm text-gray-700"></i>

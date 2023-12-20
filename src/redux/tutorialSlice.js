@@ -29,7 +29,6 @@ const deleteTutorial = createAsyncThunk(
           Authorization: `Bearer ${token}`
         }
       });
-      alert(response.data.message);
       return response.data.message;
     } catch (error) {
       if (error.response && error.response.status === 404) {

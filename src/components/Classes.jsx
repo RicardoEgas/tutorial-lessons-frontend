@@ -39,29 +39,21 @@ const AddClassForm = () => {
     }
   };
 
-  const backgroundStyle = {
-    backgroundImage:
-      'url("https://i.pinimg.com/736x/f0/31/00/f03100ff0c6afbbf061bbb4c63b5a15c.jpg")',
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    height: "100vh",
-    position: "relative",
-  };
-
   const overlayStyle = {
-    backgroundColor: "rgba(151, 191, 15, 0.8)",
-    height: "100%",
-    width: "100%",
+    background: `linear-gradient(rgba(0, 0, 0, 0.5), #97bf0f), url("https://imageio.forbes.com/specials-images/imageserve/64a558c8a1a3027a9e9805d4/Black-ethnicity-student-writing-while-studying-in-classroom/960x0.jpg?format=jpg&width=960")`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    height: '100%',
+    width: '100%',
   };
 
   return (
-    <div style={backgroundStyle}>
       <div style={overlayStyle}>
         <div className="min-h-screen flex flex-col items-center justify-center text-gray-700">
           <div className="text-center mb-8">
             <h2
-              className="text-3xl font-bold text-white mb-2"
+              className="text-4xl font-bold text-white mb-2"
               style={{ letterSpacing: "4px" }}
             >
               Add Tutorial
@@ -78,7 +70,7 @@ const AddClassForm = () => {
             <div className="mb-4">
               <label
                 htmlFor="name"
-                className="block text-[#97bf0f] text-sm font-semibold mb-2"
+                className="block text-[#97bf0f] font-semibold mb-2"
               >
                 Name
               </label>
@@ -88,6 +80,7 @@ const AddClassForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
+                placeholder="Your name"
                 className="w-full p-2 border rounded-md"
                 required
               />
@@ -95,7 +88,7 @@ const AddClassForm = () => {
             <div className="mb-4">
               <label
                 htmlFor="cost"
-                className="block text-[#97bf0f] text-sm font-semibold mb-2"
+                className="block text-[#97bf0f] font-semibold mb-2"
               >
                 Cost
               </label>
@@ -105,6 +98,7 @@ const AddClassForm = () => {
                 name="cost"
                 value={formData.cost}
                 onChange={handleChange}
+                placeholder="$USD"
                 className="w-full p-2 border rounded-md"
                 required
               />
@@ -112,7 +106,7 @@ const AddClassForm = () => {
             <div className="mb-4">
               <label
                 htmlFor="duration"
-                className="block text-[#97bf0f] text-sm font-semibold mb-2"
+                className="block text-[#97bf0f] font-semibold mb-2"
               >
                 Duration
               </label>
@@ -122,6 +116,7 @@ const AddClassForm = () => {
                 name="duration"
                 value={formData.duration}
                 onChange={handleChange}
+                placeholder="Duration(hours)"
                 className="w-full p-2 border rounded-md"
                 required
               />
@@ -129,7 +124,7 @@ const AddClassForm = () => {
             <div className="mb-4">
               <label
                 htmlFor="image"
-                className="block text-[#97bf0f] text-sm font-semibold mb-2"
+                className="block text-[#97bf0f] font-semibold mb-2"
               >
                 Image
               </label>
@@ -139,6 +134,7 @@ const AddClassForm = () => {
                 name="image"
                 value={formData.image}
                 onChange={handleChange}
+                placeholder="Enter image url..."
                 className="w-full p-2 border rounded-md"
                 required
               />
@@ -146,7 +142,7 @@ const AddClassForm = () => {
             <div className="mb-4">
               <label
                 htmlFor="description"
-                className="block text-[#97bf0f] text-sm font-semibold mb-2"
+                className="block text-[#97bf0f] font-semibold mb-2"
               >
                 Description
               </label>
@@ -155,6 +151,7 @@ const AddClassForm = () => {
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
+                placeholder="Say something..."
                 className="w-full p-2 border rounded-md"
                 required
               />
@@ -169,7 +166,6 @@ const AddClassForm = () => {
           </form>
         </div>
       </div>
-    </div>
   );
 };
 

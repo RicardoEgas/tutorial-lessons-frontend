@@ -32,3 +32,21 @@
 ## [Link to the kanbarn board](https://github.com/RicardoEgas/tutorial-lessons-backend/projects/1)
 
 ## [Link to the kanbarn board at its initial state](./public/Kanban.PNG)
+
+## 🛠 Built With <a name="built-with"></a>
+
+### Tech Stack <a name="tech-stack"></a>
+
+<details>
+  <summary>React</summary>
+  <ul>
+    <li><a>https://react.org/</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>Redux</summary>
+  <ul>
+    <li><a>https://redux.js.org/</a></li>
+  </ul>
+</details>

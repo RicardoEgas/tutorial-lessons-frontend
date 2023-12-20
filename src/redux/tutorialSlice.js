@@ -22,6 +22,7 @@ const getTutorials = createAsyncThunk(
 const deleteTutorial = createAsyncThunk(
   'tutorials/deleteTutorial',
   async (tutorial_id, thunkAPI) => {
+    const token = getToken();
     try {
       const response = await customApi.delete(`/api/v1/tutorials/${tutorial_id}`, {
         headers: {
@@ -126,6 +127,8 @@ const tutorialSlice = createSlice({
       .addCase(deleteTutorial.fulfilled, (state, action) => {
         state.isLoading = false;
         state.message = action.payload;
+        const deletedTutorialId = action.payload.deletedTutorialId;
+        state.tutorials = state.tutorials.filter((tutorial) => tutorial.id !== deletedTutorialId);
       })
       .addCase(deleteTutorial.rejected, (state, action) => {
         state.isLoading = false;

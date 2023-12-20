@@ -39,39 +39,13 @@ a {
   margin: auto;
 }
 
-.tutorial_1 {
-  padding-top: 50px;
-}
-
-.tutorial-card {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-  padding: 2rem;
-  width: auto;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease-in-out;
-}
-
-.tutorial-card_content {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  padding: 2rem;
-}
-
-.tutorial-card_content p {
-  font-size: 1.8rem;
-  text-align: center;
-}
-
 .tutorial-card_content a {
   font-size: 1.8rem;
   text-align: center;
 }
 
 .tutorial-card_content button {
+  margin-top: 4rem;
   font-size: 1.8rem;
   text-align: center;
   border-radius: 0.5rem;

@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { submitTutorialApiCall } from '../redux/tutorialSlice';
 
 const AddClassForm = () => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
     cost: "",
     duration: "",
     image: "",
+    description:"",
   });
 
   const handleChange = (e) => {
@@ -16,9 +20,20 @@ const AddClassForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    try {
+      const response = await submitTutorialApiCall(formData);
+      setFormData({
+        name: "",
+        cost: "",
+        duration: "",
+        image: "",
+        description: "",
+      });
+    } catch (error) {
+      console.error('Error submitting tutorial:', error);
+    }
   };
 
   const backgroundStyle = {
@@ -46,7 +61,7 @@ const AddClassForm = () => {
               className="text-3xl font-bold text-white mb-2"
               style={{ letterSpacing: "4px" }}
             >
-              Add Class
+              Add Tutorial
             </h2>
             <div className="border-t border-white w-52 mx-auto mb-4 mt-4"></div>
             <p className="text-lg text-white">
@@ -120,6 +135,22 @@ const AddClassForm = () => {
                 id="image"
                 name="image"
                 value={formData.image}
+                onChange={handleChange}
+                className="w-full p-2 border rounded-md"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="description"
+                className="block text-[#97bf0f] text-sm font-semibold mb-2"
+              >
+                Description
+              </label>
+              <textarea
+                id="description"
+                name="description"
+                value={formData.description}
                 onChange={handleChange}
                 className="w-full p-2 border rounded-md"
                 required

@@ -36,9 +36,9 @@ const Navbar = () => {
         {isOpen ? <FaArrowLeft /> : <FaBars />}
       </div>
       <ul className={`lg:flex lg:flex-col lg:items-center ${isOpen ? 'block' : 'hidden'}`}>
-  <li className='hidden lg:block'>
-    <img src='logo-nw-nw.png' alt='Logo' className='py-4' style={{ width: '100px', height: '50px', margin: '20px' }} />
-  </li>
+      <li className='hidden lg:block'>
+        <img src='./logo-nw-nw.png' alt='Logo' className='py-4' style={{ width: '100px', height: '50px', margin: '20px' }} />
+      </li>
   {console.log('Image Path:', 'new-logo.png')} 
 
   

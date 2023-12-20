@@ -9,7 +9,7 @@ const getTutorials = createAsyncThunk(
   async (thunkAPI) => {
     try {
       const response = await customApi.get('/api/v1/tutorials');
-      // console.log(response.data);
+      console.log(response.data);
       return response.data;
       
     } catch (error) {
@@ -41,6 +41,39 @@ const deleteTutorial = createAsyncThunk(
   }
 );
 
+export const submitTutorialApiCall = async (formData) => {
+  console.log('Submitting tutorial API call');
+  try {
+    const token = getToken();
+    console.log('Submitting tutorial API call');
+    console.log('Token:', token);
+    const requestData = {
+      tutorial: {
+        title: formData.name,
+        description: formData.description || '', 
+        tutorial_price: formData.cost,
+        scheduling_price: formData.duration,
+        photo: formData.image,
+      },
+    };
+
+    const response = await customApi.post('/api/v1/tutorials', requestData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    console.log(response.data);
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error.response?.data.errors || 'Unknown error';
+  }
+};
+
+
+
 const tutorialSlice = createSlice({
   name: 'tutorials',
   initialState: {
@@ -48,6 +81,13 @@ const tutorialSlice = createSlice({
     message: null,
     error: null,
     isLoading: false,
+    formData: {
+      name: '',
+      description: "",
+      cost: '',
+      duration: '',
+      image: '',
+    },
   },
   reducers: {
     addTutorial: (state, action) => {
@@ -59,6 +99,9 @@ const tutorialSlice = createSlice({
     delConsole: (state, action) => {
       state.tutorials = state.tutorials.filter((tutorial) => tutorial.id !== action.payload);
     },
+    updateFormData: (state, action) => {
+      state.formData = { ...state.formData, ...action.payload };
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -67,7 +110,10 @@ const tutorialSlice = createSlice({
       })
       .addCase(getTutorials.fulfilled, (state, action) => {
         state.isLoading = false;
+        // state.tutorials = action.payload.data;
+        // console.log('Tutorials from API:', action.payload.data);
         state.tutorials = action.payload.tutorials;
+        console.log('Tutorials from API:', action.payload.tutorials);
       })
       .addCase(getTutorials.rejected, (state, action) => {
         state.isLoading = false;
@@ -84,10 +130,10 @@ const tutorialSlice = createSlice({
       .addCase(deleteTutorial.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
+      })
   },
 });
 
-export const { addTutorial, setMessage, delTutorial } = tutorialSlice.actions;
+export const { addTutorial, setMessage, delTutorial, updateFormData } = tutorialSlice.actions;
 export default tutorialSlice.reducer;
 export { getTutorials, deleteTutorial };

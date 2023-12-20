@@ -20,7 +20,6 @@ import Reservations from './pages/Reservations';
 import ReserveTutorial from './components/reservations/ReserveTutorial';
 // import ResetPassword from './components/auth/ResetPassword';
 // import SplashScreen from './components/splash-screen/SplashScreen';
-import store from './redux/store';
 import AddTutorial from './pages/AddTutorial';
 import TutorialDetail from './components/tutorials/TutorialDetail';
 import Tutorials from './pages/tutorials';

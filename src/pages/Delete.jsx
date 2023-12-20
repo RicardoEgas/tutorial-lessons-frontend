@@ -36,7 +36,7 @@ const DeleteClass = () => {
           Delete Classes
         </h2>
         <div className="border-t border-white w-52 mx-auto mb-4 mt-4"></div>
-        <p className="text-lg text-white">Click "Delete" to remove a class from the list.</p>
+        <p className="text-lg text-white">Click &quot;Delete&quot; to remove a class from the list.</p>
       </div>
       <ul className="bg-white p-8 rounded-md shadow-md w-full max-w-md">
         {classes.map((classItem) => (
@@ -44,7 +44,7 @@ const DeleteClass = () => {
             <span className="text-[#97bf0f]">{classItem.name}</span>
             <button
               onClick={() => handleDelete(classItem.id)}
-              className="bg-[#97bf0f] text-white py-2 px-4 rounded-full hover:bg-white hover:text-[#97bf0f] transition duration-300"
+              className="bg-[#97bf0f] text-white py-2 px-4 rounded-full hover:bg-red-500 hover:text-white transition duration-300"
             >
               Delete
             </button>

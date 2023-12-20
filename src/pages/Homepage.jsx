@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
-import Navbar from './Navbar';
 import './home.css'
 
 const slideWidth = 30;

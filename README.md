@@ -113,3 +113,34 @@ npm test
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 👥 Authors <a name="authors"></a>
+
+👤 **Author1**
+_[ZUWAIRA SADIQ]_ 
+
+- GitHub: [@githubhandle](https://github.com/Zuwairanajma)
+- Twitter: [@twitterhandle](https://twitter.com/SadiqJuwairiyya)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/zuwaira-sadiq-566b891b0?)
+
+👤 **Author2**
+_[RICARDO EGAS]_
+
+- GitHub: [@githubhandle](https://github.com/RicardoEgas)
+- Twitter: [@twitterhandle](https://twitter.com/RjEgas)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ricardo-egas-952125136)
+
+👤 **Author3**
+_[MOHAMMED ALI REZA]_
+
+- GitHub: [@githubhandle](https://github.com/AliRezaBmeDu)
+- Twitter: [@twitterhandle](https://twitter.com/share_insider)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohammad-ali-reza-25686428b/)
+
+👤 **Author4**
+_[MOHAMMED NEWTON OMBESE]_
+- GitHub: [@githubhandle](https://github.com/mohammadnewton )
+- Twitter: [@twitterhandle](https://x.com/mohanewto200?t=spjKmUAKE443QaOp_7iqIg&s=09)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohammad-newton-ombese?)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>

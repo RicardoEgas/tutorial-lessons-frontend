@@ -150,3 +150,10 @@ _[MOHAMMED NEWTON OMBESE]_
 - [] **[Rendering and reserving extracurricula courses]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+Feel free to check the [issues page](https://github.com/RicardoEgas/tutorial-lessons-backend/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>

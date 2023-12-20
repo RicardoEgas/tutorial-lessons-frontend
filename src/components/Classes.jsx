@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { submitTutorialApiCall } from '../redux/tutorialSlice';
+import { useNavigate } from "react-router-dom";
 
 const AddClassForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     cost: "",
@@ -31,6 +33,7 @@ const AddClassForm = () => {
         image: "",
         description: "",
       });
+      navigate('/home');
     } catch (error) {
       console.error('Error submitting tutorial:', error);
     }

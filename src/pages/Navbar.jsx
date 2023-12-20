@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { FaBars, FaArrowLeft } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
-
+// import TutorialItems  from './tutorials/TutorialItems'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -10,10 +10,8 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-
   return (
-    ['/', '/login', '/signup'].includes(window.location.pathname) ? null : (
-    <nav className="bg-white text-[#4c4c4c] border-r border-gray-400 fixed h-full flex flex-col transition-transform duration-300 transform translate-x-0 lg:translate-x-0 lg:w-40 lg:items-center"style={{ zIndex: 1000 }}>
+    <nav className="bg-white text-[#4c4c4c] border-r border-gray-400 fixed h-full flex flex-col transition-transform duration-300 transform translate-x-0 lg:translate-x-0 lg:w-40 lg:items-center">
       {/* Hamburger button for smaller screens */}
       <div className="lg:hidden cursor-pointer p-4" onClick={toggleMenu}>
         {isOpen ? <FaArrowLeft /> : <FaBars />}
@@ -24,7 +22,7 @@ const Navbar = () => {
           <h1 className='font-bold text-black py-4'>Logo</h1>
         </li>
         <li className="p-4 cursor-pointer">
-          <NavLink to="/home" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
+          <NavLink to="/" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
             Home
           </NavLink>
         </li>
@@ -34,15 +32,17 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className="p-4 cursor-pointer">
+          <NavLink to="/tutorials" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
+            Tutorials
+            {/* <TutorialItems /> */}
+          </NavLink>
+        </li>
+        <li className="p-4 cursor-pointer">
           <NavLink to="/reservations" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
             Reservations
           </NavLink>
         </li>
-        <li className="p-4 cursor-pointer">
-          <NavLink to="/classes" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
-            Add class
-          </NavLink>
-        </li>
+
       </ul>
 
       <div className={`lg:block mt-40 ${isOpen ? 'nav-footer' : 'hidden'}`}>
@@ -68,8 +68,8 @@ const Navbar = () => {
         </small>
       </div>
     </nav>
-    )
   );
 };
 
 export default Navbar;
+

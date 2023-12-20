@@ -1,65 +1,19 @@
-/* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Login.css';
 
-function Signup({ hideSplash }) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    hideSplash();
-  }, [hideSplash]);
-
-  const handleSignup = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch('http://localhost:3000/api/v1/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          user: {
-            name: name,
-            email: email,
-            password: password,
-            password_confirmation: confirmPassword,
-          },
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log('Signup successful', data);
-        navigate('/login');
-      } else {
-        console.error('Signup failed', data.errors);
-      }
-    } catch (error) {
-      console.error('Error during signup', error);
-    }
-  };
-
+function Signup() {
   return (
     <section className='form-auth'>
       <div className="container">
         <div className="heading">Sign Up</div>
-        <form action="" className="form" onSubmit={handleSignup}>
+        <form action="" className="form">
           <input
             required=""
             className="input"
             type="text"
             name="name"
             id="name"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            placeholder="Name" 
           />
           <input
             required=""
@@ -67,9 +21,7 @@ function Signup({ hideSplash }) {
             type="email"
             name="email"
             id="email"
-            placeholder="E-mail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            placeholder="E-mail" 
           />
           <input
             required=""
@@ -78,8 +30,6 @@ function Signup({ hideSplash }) {
             name="password"
             id="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
           />
           <input
             required=""
@@ -88,8 +38,6 @@ function Signup({ hideSplash }) {
             name="confirm-password"
             id="password"
             placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <input
             className="login-button"

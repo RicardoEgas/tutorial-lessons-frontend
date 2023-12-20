@@ -1,0 +1,8 @@
+.reservation {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), #97bf0f), url("https://i.pinimg.com/736x/f0/31/00/f03100ff0c6afbbf061bbb4c63b5a15c.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+}

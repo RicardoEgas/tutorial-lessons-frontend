@@ -157,3 +157,9 @@ Contributions, issues, and feature requests are welcome!
 Feel free to check the [issues page](https://github.com/RicardoEgas/tutorial-lessons-backend/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ⭐ Show your support <a name="support"></a>
+
+If you like this project please show support by staring :star:️.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>

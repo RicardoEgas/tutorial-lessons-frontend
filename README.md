@@ -144,3 +144,9 @@ _[MOHAMMED NEWTON OMBESE]_
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohammad-newton-ombese?)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [] **[Rendering and reserving extracurricula courses]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>

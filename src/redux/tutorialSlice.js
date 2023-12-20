@@ -127,8 +127,8 @@ const tutorialSlice = createSlice({
       .addCase(deleteTutorial.fulfilled, (state, action) => {
         state.isLoading = false;
         state.message = action.payload;
-        const deletedTutorialId = action.payload.deletedTutorialId;
-        state.tutorials = state.tutorials.filter((tutorial) => tutorial.id !== deletedTutorialId);
+        const newState = state.tutorials.filter((tutorial) => tutorial.id !== action.payload)
+        state.tutorials = newState
       })
       .addCase(deleteTutorial.rejected, (state, action) => {
         state.isLoading = false;

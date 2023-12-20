@@ -6,6 +6,8 @@ import { NavLink } from 'react-router-dom';
 import { signout } from '../redux/userSlice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import image from './logo-nw-nw.png';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
@@ -37,7 +39,7 @@ const Navbar = () => {
       </div>
       <ul className={`lg:flex lg:flex-col lg:items-center ${isOpen ? 'block' : 'hidden'}`}>
       <li className='hidden lg:block'>
-        <img src='./logo-nw-nw.png' alt='Logo' className='py-4' style={{ width: '100px', height: '50px', margin: '20px' }} />
+        <img src={image} alt='Logo' className='py-4' style={{ width: '80px', height: '80px', margin: '20px' }} />
       </li>
   {console.log('Image Path:', 'new-logo.png')} 
 
@@ -73,7 +75,7 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/" onClick={() => handleSignOut()} className='block px-4 text-[18px] py-4 mt-28 ml-auto font-bold hover:bg-[#97bf0f] hover:text-white'>
+          <NavLink to="/" onClick={() => handleSignOut()} className='block px-4 text-[18px] py-4 mt-20 ml-auto font-bold hover:bg-[#97bf0f] hover:text-white'>
             Logout
           </NavLink>
         </li>

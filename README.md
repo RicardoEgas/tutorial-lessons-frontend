@@ -90,3 +90,10 @@ Install this project with:
 ```
   npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
 ```
+### Usage
+
+To run the project, execute the following command:
+
+```
+  npm run dev
+```

@@ -28,3 +28,7 @@
 ## [Link to the Site]()
 
 ## [Link to the back-end repo](https://github.com/RicardoEgas/tutorial-lessons-backend.git)
+
+## [Link to the kanbarn board](https://github.com/RicardoEgas/tutorial-lessons-backend/projects/1)
+
+## [Link to the kanbarn board at its initial state](./public/Kanban.PNG)

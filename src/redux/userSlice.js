@@ -5,15 +5,9 @@ import axios from "axios";
 const baseURL = 'http://localhost:3000/api/v1';
 const makeApiCall = async (endpoint, user, thunkAPI) => {
   try {
-     getToken()
     const response = await axios.post(`${baseURL}${endpoint}`,
       { 
         user : user
-      },
-      {
-        headers: {
-          Authorization: 'Bearer ${token}',
-        }
       });
 
     const data = await response.data;

@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import { useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Layout from './components/auth/Layout';
+import { Routes, Route} from 'react-router-dom';
+// import Layout from './components/auth/Layout';
 // import Main from './pages/Main';
 // import Detail from './pages/Details';
 // import Reservation from './components/Reservations';
@@ -17,7 +17,7 @@ import TutorialDetail from './components/tutorials/TutorialDetail';
 import Tutorials from './pages/tutorials';
 import DeleteTutorials from './pages/DeleteTutorials';
 import Home from './pages/Homepage';
-import ProtectedRoutes from './components/auth/protetedRoutes';
+// import ProtectedRoutes from './components/auth/protetedRoutes';
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);

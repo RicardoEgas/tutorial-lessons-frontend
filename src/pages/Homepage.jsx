@@ -62,10 +62,11 @@ const Home = () => {
 
   const CarouselSlideItem = ({ pos, idx, activeIdx }) => {
     const item = createItem(pos, idx, activeIdx);
+    const tutorial = tutorials[idx];
 
     return (
       <li className="carousel__slide-item" style={item.styles}>
-        <Link to={`/tutorial/${idx}`}>
+        <Link to={`/tutorial/${tutorial.id}`}>
           <div className="carousel__slide-item-img-link">
             <img src={item.course.image} alt={item.course.title} />
           </div>

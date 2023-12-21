@@ -1,7 +1,7 @@
+/* eslint-disable no-undef */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getToken } from "../../utils/localStorage";
 import customApi from "../../utils/axios";
-// console.log('token: ', token);
 
 const createReservation = createAsyncThunk(
   "reserveTutorial/createReservation",

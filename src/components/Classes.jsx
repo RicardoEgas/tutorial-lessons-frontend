@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { submitTutorialApiCall } from '../redux/tutorialSlice';
 
 const AddClassForm = () => {
-  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: '',
     cost: '',

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/userSlice';
 
 import './Login.css';
@@ -15,13 +15,6 @@ function Signup() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const isLoading = useSelector((state) => state.user.isLoading);
-  const error = useSelector((state) => state.user.error);
-
-  // useEffect(() => {
-  //   hideSplash();
-  // }, [hideSplash]);
-
   const handleSignup = async (e) => {
     e.preventDefault();
 
@@ -29,6 +22,7 @@ function Signup() {
     dispatch(registerUser({ name, email, password, password_confirmation: confirmPassword }))
       .then((response) => {
         // Handle successful registration
+        console.log(response)
         navigate('/login');
       })
       .catch((err) => {

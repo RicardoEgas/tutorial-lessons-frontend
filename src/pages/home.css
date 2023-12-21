@@ -55,7 +55,7 @@
   padding: 0;
   position: absolute;
   transform: translateX(-50%);
-  width: calc(330rem);
+  width: 30rem;
 }
 
 .carousel__slide-item {
@@ -78,10 +78,8 @@
 }
 
 .carousel__slide-item-img-link img {
-  height: 100%;
   object-fit: cover;
   transition: all 0.5s ease;
-  width: 100%;
 }
 
 .carousel__slide-item-img-link::after {

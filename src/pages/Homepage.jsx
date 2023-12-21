@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTutorials } from '../redux/tutorialSlice';
 import './home.css';
@@ -64,12 +65,14 @@ const Home = () => {
 
     return (
       <li className="carousel__slide-item" style={item.styles}>
-        <div className="carousel__slide-item-img-link">
-          <img src={item.course.image} alt={item.course.title} />
-        </div>
-        <div className="carousel-slide-item__body">
-          <h4>{item.course.title}</h4>
-        </div>
+        <Link to={`/tutorial/${idx}`}>
+          <div className="carousel__slide-item-img-link">
+            <img src={item.course.image} alt={item.course.title} />
+          </div>
+          <div className="carousel-slide-item__body">
+            <h4>{item.course.title}</h4>
+          </div>
+        </Link>
       </li>
     );
   };

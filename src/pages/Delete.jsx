@@ -21,7 +21,7 @@ const DeleteClass = () => {
   };
 
   const overlayStyle = {
-    background: `linear-gradient(rgba(0, 0, 0, 0.5), #97bf0f), url("https://img.freepik.com/free-photo/rear-view-young-man-walking-pavement_23-2147891935.jpg")`,
+    background: `linear-gradient(rgba(0, 0, 0, 0.5), #97bf0f), url('https://img.freepik.com/free-photo/rear-view-young-man-walking-pavement_23-2147891935.jpg')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',

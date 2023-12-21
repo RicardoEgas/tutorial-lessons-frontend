@@ -52,9 +52,6 @@ const ReserveTutorial = () => {
         reserveDate: formattedDate
     }
 
-    // console.log('newReservation: ', newReservation);
-    // console.log('formatted date', formattedDate);
-
     await dispatch(createReservation(newReservation));
     navigate('/myreservations');
     setSelectedDate('');

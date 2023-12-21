@@ -13,13 +13,15 @@ const TutorialDetail = () => {
   const tutorials = useSelector((state) => state.tutorials.tutorials);
   
   useEffect(() => {
+    console.log('Current tutorial ID:', id);
     const tutorial = tutorials.find((element) => element.id === parseInt(id, 10));
-    setTheTutorial(tutorial);
-    const userId = parseInt(localStorage.getItem('userId'), 10)
-    if(tutorial.reserve_users.includes(userId)) {
-      console.log('Is it working')
-      setIsReserved(true)
-    }
+    if (tutorial) {
+      setTheTutorial(tutorial);
+      const userId = parseInt(localStorage.getItem('userId'), 10)
+      if (tutorial.reserve_users.includes(userId)) {
+        setIsReserved(true);
+      }
+    }    
     console.log('isReserved state', isReserved)
   }, [id, tutorials]);
 

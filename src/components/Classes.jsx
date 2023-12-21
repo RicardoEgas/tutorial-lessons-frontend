@@ -1,9 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
-import { useDispatch } from 'react-redux';
 import { submitTutorialApiCall } from '../redux/tutorialSlice';
 
 const AddClassForm = () => {
-  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
     cost: "",

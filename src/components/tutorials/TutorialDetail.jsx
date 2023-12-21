@@ -1,13 +1,14 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { createReservation, deleteReservation } from '../../redux/reservations/reserveTutorialSlice';
 
 const TutorialDetail = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [theTutorial, setTheTutorial] = useState(null);
-  const [isReserved, setIsReserved] = useState(false); // Track reservation status
+  const [isReserved, setIsReserved] = useState(false);
   const { id } = useParams();
   const tutorials = useSelector((state) => state.tutorials.tutorials);
   
@@ -26,20 +27,20 @@ const TutorialDetail = () => {
     try {
       const currentDate = new Date();
       const reserveDate = currentDate.toISOString();
-  
+
       console.log('Reservation made for tutorial ID:', id);
       setIsReserved(true);
 
       await dispatch(createReservation({ tutorialId: id, reserveDate }));
+      navigate(`/reserve/${id}`);
     } catch (error) {
       console.error('Error creating reservation:', error);
     }
   };
-  
-  
+
   const handleCancelReservation = async () => {
     try {
-      const reservationId = theTutorial.reservationId; 
+      const reservationId = theTutorial.reservationId;
 
       console.log('Reservation canceled for tutorial ID:', id);
       setIsReserved(false);
@@ -49,7 +50,6 @@ const TutorialDetail = () => {
       console.error('Error canceling reservation:', error);
     }
   };
-  
 
   return (
     <div className="flex flex-col items-center justify-center h-full tutorials tutorial_1">

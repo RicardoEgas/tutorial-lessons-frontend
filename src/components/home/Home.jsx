@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Home() {
   return (
     <section className='flex flex-col items-center justify-center min-h-screen'>
@@ -18,7 +20,9 @@ function Home() {
               If a dog chews shoes whose shoes does he choose?
             </p>
             <div className="card-actions">
-              <button className="btn btn-primary bg-[#97bf0f] p-2 text-white">Enroll Now</button>
+            <Link to={`/details/1`}>
+              <button  className="btn btn-primary bg-[#97bf0f] p-2 text-white">Enroll Now</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -36,7 +40,9 @@ function Home() {
               If a dog chews shoes whose shoes does he choose?
             </p>
             <div className="card-actions">
+            <Link to={`/details/2`}>
               <button className="btn btn-primary bg-[#97bf0f] p-2 text-white">Enroll Now</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -54,7 +60,9 @@ function Home() {
               If a dog chews shoes whose shoes does he choose?
             </p>
             <div className="card-actions">
+            <Link to={`/details/3`}>
               <button className="btn btn-primary bg-[#97bf0f] p-2 text-white">Enroll Now</button>
+              </Link>
             </div>
           </div>
         </div>

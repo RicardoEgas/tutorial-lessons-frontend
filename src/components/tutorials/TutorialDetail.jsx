@@ -37,10 +37,10 @@ const TutorialDetail = () => {
               <tbody>
                 <tr className="bg-gray-100 flex items-center justify-around">
                   <td className="font-bold">Tutorial Price:</td>
-                  <td>{theTutorial.tutorial_price}</td>
+                  <td>$ {theTutorial.tutorial_price}</td>
                 </tr>
                 <tr className="bg-gray-300 flex items-center justify-around">
-                  <td className="font-bold">Scheduling Price:</td>
+                  <td className="font-bold">Duration:</td>
                   <td>{theTutorial.scheduling_price}</td>
                 </tr>
               </tbody>

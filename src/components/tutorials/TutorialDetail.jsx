@@ -2,6 +2,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { createReservation, deleteReservation } from '../../redux/reservations/reserveTutorialSlice';
+import { getTutorials } from '../../redux/tutorialSlice';
+import { fetchUserReservations } from '../../redux/reservations/reservationsSlice';
 
 const TutorialDetail = () => {
   const dispatch = useDispatch();
@@ -10,7 +12,13 @@ const TutorialDetail = () => {
   const [theTutorial, setTheTutorial] = useState(null);
   const [isReserved, setIsReserved] = useState(false);
   const { id } = useParams();
-  const tutorials = useSelector((state) => state.tutorials.tutorials);
+  const {tutorials, isLoading} = useSelector((state) => state.tutorials);
+  const reservations = useSelector((state) => state.reservations.reservations)
+
+  useEffect(() => {
+    dispatch(getTutorials());
+    dispatch(fetchUserReservations());
+  }, [])
   
   useEffect(() => {
     console.log('Current tutorial ID:', id);
@@ -31,7 +39,9 @@ const TutorialDetail = () => {
 
   const handleCancelReservation = async () => {
     try {
-      const reservationId = theTutorial.reservationId;
+
+      const reservation = reservations.find((element) => element.tutorial.id === parseInt(id, 10))
+      const reservationId = reservation.reservation.id;
 
       console.log('Reservation canceled for tutorial ID:', id);
       setIsReserved(false);
@@ -41,6 +51,14 @@ const TutorialDetail = () => {
       console.error('Error canceling reservation:', error);
     }
   };
+
+  if(isLoading) {
+    return(
+      <div className='flex flex-col items-center justify-cernter h-full'>
+        <h1>Loading...</h1>
+      </div>
+    )
+  }
 
   return (
     <div className="flex flex-col items-center justify-center h-full tutorials tutorial_1">

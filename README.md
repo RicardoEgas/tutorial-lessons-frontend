@@ -103,9 +103,6 @@ To run the project, execute the following command:
 To run tests, run the following command:
 
 ```
-npm test
-```
-```
   npx eslint "**/*.{js,jsx}" --fix
 ```
 ```

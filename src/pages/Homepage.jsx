@@ -75,18 +75,20 @@ const Home = () => {
   };
 
   const prevClick = (jump = 1) => {
-    if (!isTicking) {
+    if (!isTicking && activeIdx > 0) {
       setIsTicking(true);
       setActiveIdx((activeIdx + bigLength - jump) % bigLength);
     }
+    console.log('Previous Clicked');
   };
 
   const nextClick = (jump = 1) => {
-    if (!isTicking) {
+    if (!isTicking && activeIdx < bigLength - 1) {
       setIsTicking(true);
       setActiveIdx((activeIdx + jump) % bigLength);
     }
-  };
+    console.log('Next Clicked');
+  }; 
 
   const handleDotClick = (idx) => {
     if (idx < activeIdx) prevClick(activeIdx - idx);
@@ -117,12 +119,13 @@ const Home = () => {
         </p>
         <div className="carousel__wrap">
           <div className="carousel__inner">
-            <button
-              className="carousel__btn carousel__btn--prev"
-              onClick={() => prevClick()}
-            >
-              <i className="carousel__btn-arrow carousel__btn-arrow--left" />
-            </button>
+          <button
+            className="carousel__btn carousel__btn--prev"
+            onClick={() => prevClick()}
+            disabled={activeIdx === 0}
+          >
+            <i className="carousel__btn-arrow carousel__btn-arrow--left" />
+          </button>
             <div className="carousel__container">
               <ul className="carousel__slide-list">
                 {items.map((item, i) => (
@@ -138,6 +141,7 @@ const Home = () => {
             <button
               className="carousel__btn carousel__btn--next"
               onClick={() => nextClick()}
+              disabled={activeIdx === bigLength - 1}
             >
               <i className="carousel__btn-arrow carousel__btn-arrow--right" />
             </button>

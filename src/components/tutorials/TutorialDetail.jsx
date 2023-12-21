@@ -25,19 +25,8 @@ const TutorialDetail = () => {
     console.log('isReserved state', isReserved)
   }, [id, tutorials]);
 
-  const handleReservation = async () => {
-    try {
-      const currentDate = new Date();
-      const reserveDate = currentDate.toISOString();
-
-      console.log('Reservation made for tutorial ID:', id);
-      setIsReserved(true);
-
-      await dispatch(createReservation({ tutorialId: id, reserveDate }));
+  const handleReservation = () => {
       navigate(`/reserve/${id}`);
-    } catch (error) {
-      console.error('Error creating reservation:', error);
-    }
   };
 
   const handleCancelReservation = async () => {

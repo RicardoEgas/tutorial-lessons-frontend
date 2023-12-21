@@ -38,7 +38,7 @@ const DeleteClass = () => {
               Delete Tutorial
             </h2>
             <div className="border-t border-white w-52 mx-auto mb-4 mt-4"></div>
-            <p className="text-lg text-white">Click "Delete" to remove a tutorial from the list.</p>
+            <p className="text-lg text-white">Click &quot;Delete&quot; to remove a tutorial from the list.</p>
           </div>
           {tutorials.length === 0 ? (
             <p className="text-white">No tutorials available to delete.</p>

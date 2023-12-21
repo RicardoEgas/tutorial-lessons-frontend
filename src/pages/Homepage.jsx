@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTutorials } from '../redux/tutorialSlice';
+import { useLocation } from 'react-router-dom';
 import './home.css';
 
 const slideWidth = 30;
@@ -14,6 +15,8 @@ const Home = () => {
   const [isTicking, setIsTicking] = useState(false);
   const [activeIdx, setActiveIdx] = useState(0);
   const bigLength = items.length;
+  const location = useLocation();
+  const error = location.state && location.state.error;
 
   useEffect(() => {
     dispatch(getTutorials());
@@ -114,6 +117,9 @@ const Home = () => {
   return (
     <>
       <div className="home">
+      <div>
+      {error && <p className="text-red-500">{error}</p>}
+    </div>
         <h1>Welcome to Our Application</h1>
         <p className="home-paragraph">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae

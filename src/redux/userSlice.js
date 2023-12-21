@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { saveToken, getToken, removeToken } from "../utils/localStorage";
+import { saveToken, removeToken } from "../utils/localStorage";
 import axios from "axios";
 
 const baseURL = 'http://localhost:3000/api/v1';

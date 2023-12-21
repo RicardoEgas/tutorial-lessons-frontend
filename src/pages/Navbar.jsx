@@ -2,12 +2,8 @@
 import { useState } from 'react';
 import { FaBars, FaArrowLeft } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
-import { removeToken } from '../utils/localStorage';
-import { signout } from '../redux/userSlice';
-import { useDispatch } from 'react-redux';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const dispatch = useDispatch();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);

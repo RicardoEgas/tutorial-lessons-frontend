@@ -15,15 +15,12 @@ function Signup() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const isLoading = useSelector((state) => state.user.isLoading);
-  const error = useSelector((state) => state.user.error);
-
   const handleSignup = async (e) => {
     e.preventDefault();
 
     // Dispatch the registerUser action
     dispatch(registerUser({ name, email, password, password_confirmation: confirmPassword }))
-      .then((response) => {
+      .then(() => {
         // Handle successful registration
         navigate('/login');
       })

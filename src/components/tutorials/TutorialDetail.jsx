@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { createReservation, deleteReservation } from '../../redux/reservations/reserveTutorialSlice';
+import { deleteReservation } from '../../redux/reservations/reserveTutorialSlice';
 import { getTutorials } from '../../redux/tutorialSlice';
 import { fetchUserReservations } from '../../redux/reservations/reservationsSlice';
 

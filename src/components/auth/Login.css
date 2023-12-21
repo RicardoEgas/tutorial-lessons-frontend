@@ -143,3 +143,11 @@
   text-align: center;
   margin-top: 15px;
 }
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+  background-color: pink;
+  padding: 10px;
+}

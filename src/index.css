@@ -35,8 +35,13 @@ a {
 }
 
 .tutorials {
-  width: 75%;
+  width: 70%;
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
 }
 
 .tutorial-card_content a {

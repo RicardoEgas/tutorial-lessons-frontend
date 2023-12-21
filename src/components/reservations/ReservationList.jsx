@@ -19,7 +19,7 @@ const ReservationList = () => {
 
   if (isLoading) {
     return (
-      <div className="h-[50vh] flex justify-center items-center">
+      <div className="h-[50vh] flex justify-center items-center min-h-screen">
         <div className="text-center">
           <div role="status">
             <svg
@@ -50,7 +50,7 @@ const ReservationList = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center gap-4 text-gray-500 text-sm py-8 h-full tutorials">
+    <div className="flex flex-col justify-center gap-4 text-gray-500 text-sm py-8 h-full tutorials min-h-screen">
       <header className="text-center">
         <h1 className="text-3xl font-semi-bold mb-4 text-gray-800">
           Reservations

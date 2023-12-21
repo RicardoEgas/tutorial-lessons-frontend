@@ -51,6 +51,7 @@ const initialState = {
 
 const handleSignout = () => {
   removeToken();
+  localStorage.removeItem('userId')
   state.isAuthenticated = false;
   state.user = null;
 }
@@ -86,7 +87,7 @@ const userSlice = createSlice({
         state.isLoading = false;
         state.isAuthenticated = true;
         console.log('the payload: ', action.payload);
-        // navigate('/tutorias/new')
+        localStorage.setItem('userId', action.payload.user.id)
         saveToken(action.payload.token)
       })
       .addCase(logInUser.rejected, (state, action) => {

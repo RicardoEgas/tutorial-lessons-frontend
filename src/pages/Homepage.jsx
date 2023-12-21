@@ -6,7 +6,7 @@ import './home.css';
 
 const slideWidth = 30;
 
-console.log('hompage path: ', window.location.pathname);
+// console.log('hompage path: ', window.location.pathname);
 
 const Home = () => {
   const dispatch = useDispatch();

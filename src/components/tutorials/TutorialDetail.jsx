@@ -14,9 +14,12 @@ const TutorialDetail = () => {
   useEffect(() => {
     const tutorial = tutorials.find((element) => element.id === parseInt(id, 10));
     setTheTutorial(tutorial);
-
-    const hasReserved = true;
-    setIsReserved(hasReserved);
+    const userId = parseInt(localStorage.getItem('userId'), 10)
+    if(tutorial.reserve_users.includes(userId)) {
+      console.log('Is it working')
+      setIsReserved(true)
+    }
+    console.log('isReserved state', isReserved)
   }, [id, tutorials]);
 
   const handleReservation = async () => {

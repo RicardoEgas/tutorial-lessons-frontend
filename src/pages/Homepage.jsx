@@ -36,13 +36,19 @@ const Home = () => {
   };
 
   const createItem = (position, idx) => {
+    const distance = idx - activeIdx;
+    const translateValue = distance * slideWidth;
+    
     const item = {
       styles: {
-        transform: `translateX(${(position - 1) * slideWidth}rem)`,
+        transform: `translateX(${translateValue}rem)`,
       },
       course: items[idx].course,
     };
-
+  
+    console.log('Active Index:', activeIdx);
+    console.log('TranslateX:', translateValue);
+  
     switch (position) {
       case bigLength - 1:
       case bigLength + 1:
@@ -54,9 +60,10 @@ const Home = () => {
         item.styles = { ...item.styles, opacity: 1 };
         break;
     }
-
+  
     return item;
   };
+  
 
   const CarouselSlideItem = ({ pos, idx, activeIdx }) => {
     const item = createItem(pos, idx, activeIdx);
@@ -79,6 +86,7 @@ const Home = () => {
       setIsTicking(true);
       setActiveIdx((activeIdx + bigLength - jump) % bigLength);
     }
+    console.log('Previous Clicked');
   };
 
   const nextClick = (jump = 1) => {
@@ -86,6 +94,7 @@ const Home = () => {
       setIsTicking(true);
       setActiveIdx((activeIdx + jump) % bigLength);
     }
+    console.log('Next Clicked');
   };
 
   const handleDotClick = (idx) => {
@@ -93,9 +102,21 @@ const Home = () => {
     if (idx > activeIdx) nextClick(idx - activeIdx);
   };
 
+  // useEffect(() => {
+  //   if (isTicking) sleep(300).then(() => setIsTicking(false));
+  // }, [isTicking, sleep]);
+
   useEffect(() => {
-    if (isTicking) sleep(300).then(() => setIsTicking(false));
-  }, [isTicking, sleep]);
+    const handleSleep = async () => {
+      if (isTicking) {
+        await sleep(300);
+        setIsTicking(false);
+      }
+    };
+  
+    handleSleep();
+  }, [isTicking]);
+  
 
   return (
     <>

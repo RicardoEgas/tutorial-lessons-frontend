@@ -1,19 +1,49 @@
-import { Link } from 'react-router-dom';
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../redux/userSlice';
+
 import './Login.css';
 
 function Signup() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    // Dispatch the registerUser action
+    dispatch(registerUser({ name, email, password, password_confirmation: confirmPassword }))
+      .then(() => {
+        // Handle successful registration
+        navigate('/login');
+      })
+      .catch((err) => {
+        // Handle registration failure
+        console.error('Signup failed', err);
+      });
+  };
+
   return (
     <section className='form-auth'>
       <div className="container">
         <div className="heading">Sign Up</div>
-        <form action="" className="form">
+        <form action="" className="form" onSubmit={handleSignup}>
           <input
             required=""
             className="input"
             type="text"
             name="name"
             id="name"
-            placeholder="Name" 
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
             required=""
@@ -21,7 +51,9 @@ function Signup() {
             type="email"
             name="email"
             id="email"
-            placeholder="E-mail" 
+            placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             required=""
@@ -30,6 +62,8 @@ function Signup() {
             name="password"
             id="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <input
             required=""
@@ -38,6 +72,8 @@ function Signup() {
             name="confirm-password"
             id="password"
             placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <input
             className="login-button"

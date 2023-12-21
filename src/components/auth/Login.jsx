@@ -1,19 +1,62 @@
-import { Link } from 'react-router-dom';
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { logInUser } from '../../redux/userSlice';
 import './Login.css';
 
 function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const goToDestination = () => {
+    navigate('/home')
+  }
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  // useEffect(() => {
+  //   hideSplash();
+  // }, [hideSplash]);
+
+  // const isLoading = useSelector((state) => state.user.isLoading);
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated)
+  // const error = useSelector((state) => state.user.error);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      goToDestination();
+    }
+  }, [isAuthenticated, navigate]);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Dispatch the logInUser action
+      console.log('email', email);
+      console.log('password', password);
+      await dispatch(logInUser({ email, password }));   
+    } catch (error) {
+      console.error('Error during login', error);
+    }
+  };
+
   return (
     <section className='form-auth'>
       <div className="container">
         <div className="heading">Sign In</div>
-        <form action="" className="form">
+        <form action="" className="form" onSubmit={handleLogin}>
           <input
             required=""
             className="input"
             type="email"
             name="email"
             id="email"
-            placeholder="E-mail" 
+            placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)} 
           />
           <input
             required=""
@@ -22,6 +65,8 @@ function Login() {
             name="password"
             id="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <span className="forgot-password">
             <Link to={'/reset-password'}>Forgot Password ?</Link>

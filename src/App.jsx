@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/home" element={<Home/>}></Route>
       </Routes>
     </>
-  )
+  );
 }
 
 export default App;

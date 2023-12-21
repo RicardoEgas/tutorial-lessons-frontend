@@ -13,7 +13,7 @@
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-- [:busts_in_silhouette: Authors](#authors)
+- [:busts_in_silhouette: Authors](#👥-authors)
 - [:telescope: Future Features](#future-features)
 - [:handshake: Contributing](#contributing)
 - [:star:️ Show your support](#support)
@@ -21,15 +21,17 @@
 - [:question: FAQ](#faq)
 - [:memo: License](#license)
 
-# 📖 [Tutorial-lessaons-frontend] <a name="about-project"></a>
+# 📖 [Tutorial-lessons-frontend] <a name="about-project"></a>
 
-[Tutorial-lessaons-frontend] is a frontend react app for our Tutorial lessons backend. It shows the features of the app and provides a user with better experience and interface
+[Tutorial-lessons-frontend] is a frontend react app for our Tutorial lessons backend. It shows the features of the app and provides a user with better experience and interface
 
 ## [Link to the back-end repo](https://github.com/RicardoEgas/tutorial-lessons-backend.git)
 
 ## [Link to the kanbarn board](https://github.com/RicardoEgas/tutorial-lessons-backend/projects/1)
 
-## [Link to the kanbarn board at its initial state](./public/Kanban.PNG)
+## [Link to the kanbarn board at its initial state](.https://github.com/RicardoEgas/tutorial-lessons-backend/issues/10)
+
+## A Team of 4 Members worked on this project - [See list of authors](#👥-authors))
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -112,7 +114,7 @@ npm test
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 👥 Authors <a name="authors"></a>
+## 👥 Authors <a id="👥-authors"></a>
 
 👤 **Author1**
 _[ZUWAIRA SADIQ]_ 

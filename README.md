@@ -25,8 +25,6 @@
 
 [Tutorial-lessaons-frontend] is a frontend react app for our Tutorial lessons backend. It shows the features of the app and provides a user with better experience and interface
 
-## [Link to the Site]()
-
 ## [Link to the back-end repo](https://github.com/RicardoEgas/tutorial-lessons-backend.git)
 
 ## [Link to the kanbarn board](https://github.com/RicardoEgas/tutorial-lessons-backend/projects/1)

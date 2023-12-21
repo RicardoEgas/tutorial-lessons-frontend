@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { FaBars, FaArrowLeft } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { removeToken } from '../utils/localStorage';
-// import TutorialItems  from './tutorials/TutorialItems'
 import { signout } from '../redux/userSlice';
 import { useDispatch } from 'react-redux';
 const Navbar = () => {
@@ -14,12 +13,10 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleSignOut = () => {
-    dispatch(signout());
-  }
 
   return (
-    <nav className="bg-white text-[#4c4c4c] border-r border-gray-400 fixed h-full flex flex-col transition-transform duration-300 transform translate-x-0 lg:translate-x-0 lg:w-60 lg:items-center">
+    ['/', '/login', '/signup'].includes(window.location.pathname) ? null : (
+    <nav className="bg-white text-[#4c4c4c] border-r border-gray-400 fixed h-full flex flex-col transition-transform duration-300 transform translate-x-0 lg:translate-x-0 lg:w-40 lg:items-center"style={{ zIndex: 1000 }}>
       {/* Hamburger button for smaller screens */}
       <div className="lg:hidden cursor-pointer p-4" onClick={toggleMenu}>
         {isOpen ? <FaArrowLeft /> : <FaBars />}
@@ -51,11 +48,10 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className="p-4 cursor-pointer">
-          <NavLink to="/" onClick={() => handleSignOut()} className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
-            Logout
+          <NavLink to="/classes" className='block px-4 text-[18px] py-4 font-bold hover:bg-[#97bf0f] hover:text-white'>
+            Add class
           </NavLink>
         </li>
-
       </ul>
 
       <div className={`lg:block mt-40 ${isOpen ? 'nav-footer' : 'hidden'}`}>
@@ -81,6 +77,7 @@ const Navbar = () => {
         </small>
       </div>
     </nav>
+    )
   );
 };
 

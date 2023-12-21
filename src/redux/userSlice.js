@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { saveToken, getToken, removeToken } from "../utils/localStorage";
 import axios from "axios";

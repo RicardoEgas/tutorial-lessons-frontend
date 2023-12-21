@@ -17,10 +17,8 @@ const fetchUserReservations = createAsyncThunk(
             Authorization: `Bearer ${token}`,
           },
         });
-      console.log(response);
 
       const reservations = response.data;
-      console.log('reservations ', reservations);
 
       return reservations;
     } catch (error) {

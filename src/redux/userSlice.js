@@ -29,7 +29,7 @@ const registerUser = createAsyncThunk(
   'user/registerUser',
   async (user, thunkAPI) => {
     console.log('the user', user);
-    data = await makeApiCall('/users', user, thunkAPI)
+    const data = await makeApiCall('/users', user, thunkAPI)
     return data.user
   }
 );
@@ -49,18 +49,16 @@ const initialState = {
   error: null,
 };
 
-const handleSignout = () => {
-  removeToken();
-  localStorage.removeItem('userId')
-  state.isAuthenticated = false;
-  state.user = null;
-}
-
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    signout: handleSignout,
+    signout: (state) => {
+      removeToken();
+      localStorage.removeItem('userId');
+      state.isAuthenticated = false;
+      state.user = null;
+    },
   },
   extraReducers: (builder) => {
     builder

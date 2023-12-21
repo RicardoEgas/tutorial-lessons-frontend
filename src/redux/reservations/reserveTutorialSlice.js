@@ -10,9 +10,6 @@ const createReservation = createAsyncThunk(
       const token = getToken();
       const tutorialId = newReservation.tutorialId;
       const reserveDate = newReservation.reserveDate;
-      console.log('token', token);
-      console.log('tutorial id: ', tutorialId);
-      console.log('formatted date: ', reserveDate);
       if (!token) {
         return thunkAPI.rejectWithValue('No authentication token found');
       }
@@ -32,8 +29,6 @@ const createReservation = createAsyncThunk(
 
       const data = await response.data;
       if (response.status === 201) {
-        alert('Reservation created');
-        console.log('data', data);
         return data;
       }
     } catch (error) {
@@ -67,7 +62,6 @@ const deleteReservation = createAsyncThunk(
         });
       const data = await response.data;
       if (response.status === 200) {
-        alert('Reservation deleted');
         return data;
       }
     } catch (error) {

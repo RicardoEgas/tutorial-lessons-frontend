@@ -1,0 +1,67 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+@media (max-width: 425px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+body {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.tutorials {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+
+.tutorial-card_content a {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.tutorial-card_content button {
+  margin-top: 4rem;
+  font-size: 1.8rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: #97bf0f;
+  color: white;
+}
+
+.tutorial-card_content button:hover {
+  background-color: #7f9f0f;
+}

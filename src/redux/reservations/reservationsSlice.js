@@ -2,6 +2,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import customApi from '../../utils/axios';
 import { getToken } from '../../utils/localStorage';
 
+const token = getToken();
+
 const fetchUserReservations = createAsyncThunk(
   'user/fetchUserReservations',
   async (_, thunkAPI) => {

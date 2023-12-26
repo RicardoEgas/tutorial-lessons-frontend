@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import customApi from '../utils/axios';
 import { getToken } from '../utils/localStorage';
 
+const token= getToken();
 const getTutorials = createAsyncThunk(
   'tutorials/getTutorials',
   async (thunkAPI) => {
